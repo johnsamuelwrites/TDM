@@ -1,0 +1,859 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TP 4 &#8212; Traitement de données massives</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="TP 5" href="../TP5/tp5.html" />
+    <link rel="prev" title="TP 3" href="../TP3/tp3.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/massivedataprocessing.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Traitement de données massives</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   TDM
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Français
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   TDM
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TP0/tp0.html">
+   TP 0
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TP1/tp1.html">
+   TP 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TP2/tp2.html">
+   TP 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TP3/tp3.html">
+   TP 3
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   TP 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TP5/tp5.html">
+   TP 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TP6/tp6.html">
+   TP 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Projet/Projet.html">
+   Projet
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  English
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../en/README.html">
+   TDM
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../en/practical0/practical0.html">
+   Practical 0
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../en/practical1/practical1.html">
+   Practical 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../en/practical2/practical2.html">
+   Practical 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../en/practical3/practical3.html">
+   Practical 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../en/practical4/practical4.html">
+   Practical 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../en/practical5/practical5.html">
+   Practical 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../en/Project/project.html">
+   Project
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/fr/TP4/tp4.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/johnsamuelwrites/DP-DataMining/main?urlpath=lab/tree/fr/TP4/tp4.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/johnsamuelwrites/DP-DataMining/blob/main/fr/TP4/tp4.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectifs">
+   Objectifs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#travail-sur-les-fonctions-python-integrees">
+     Travail sur les fonctions Python intégrées
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiprocessus">
+     Multiprocessus
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1">
+   Exercice 1 [★]
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2">
+   Exercice 2 [★]
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3">
+   Exercice 3 [★★]
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4">
+   Exercice 4 [★★]
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>TP 4</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectifs">
+   Objectifs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#travail-sur-les-fonctions-python-integrees">
+     Travail sur les fonctions Python intégrées
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiprocessus">
+     Multiprocessus
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1">
+   Exercice 1 [★]
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2">
+   Exercice 2 [★]
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3">
+   Exercice 3 [★★]
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4">
+   Exercice 4 [★★]
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="tp-4">
+<h1>TP 4<a class="headerlink" href="#tp-4" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="objectifs">
+<h2>Objectifs<a class="headerlink" href="#objectifs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="travail-sur-les-fonctions-python-integrees">
+<h3>Travail sur les fonctions Python intégrées<a class="headerlink" href="#travail-sur-les-fonctions-python-integrees" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>map()</p></li>
+<li><p>filter()</p></li>
+<li><p>reduce()</p></li>
+</ol>
+</div>
+<div class="section" id="multiprocessus">
+<h3>Multiprocessus<a class="headerlink" href="#multiprocessus" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>multiprocessing.cpu_count</p></li>
+<li><p>multiprocessing.Pool</p></li>
+<li><p>map</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="exercice-1">
+<h2>Exercice 1 [★]<a class="headerlink" href="#exercice-1" title="Permalink to this headline">¶</a></h2>
+<p>Dans cet exercice, nous allons examiner la fonction intégrée de Python appelée filter() qui peut être utilisée pour sélectionner les éléments d’une collection correspondant à une condition particulière.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialization</span>
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nous utiliserons la documentation disponible pour les différentes fonctions.
+Dans ce but, nous utiliserons un point d’interrogation (?) après le nom de la fonction ou d’une classe
+comme indiqué ci-dessous.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>filter<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">filter(function,</span> <span class="pre">iterable)</span></code> prend deux paramètres : une fonction et un itérable. La fonction agit sur chaque élément d’un type de données itérable.</p>
+<p>Dans le premier exemple, nous utilisons <code class="docutils literal notranslate"><span class="pre">None</span></code> comme premier paramètre. Dans ce cas, le filtre agira comme une fonction d’identité et retournera l’itérable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use of filter function with None as the first parameter</span>
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="n">filtered</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans l’exemple suivant, nous allons filtrer les nombres pairs de la liste d’entrée.
+Notez que nous avons écrit une fonction even() qui renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si le nombre d’entrée est pair,
+sinon <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">filer()</span></code> retournera les éléments de la liste qui ont retourné <code class="docutils literal notranslate"><span class="pre">True</span></code>lorsqu’ils ont été passés comme argument à la fonction even().</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">even</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">item</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="n">filtered</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">even</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans l’exemple suivant, nous avons une nouvelle fonction <code class="docutils literal notranslate"><span class="pre">odd()</span></code> qui renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> lorsque le nombre en entrée est impair.</p>
+<p>Nous utilisons cette nouvelle fonction comme entrée de la fonction <code class="docutils literal notranslate"><span class="pre">filter()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">odd</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">item</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="n">filtered</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">odd</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question</strong>  Écrivez un programme utilisant filter() qui prend une liste de chaînes de caractères et filtre les palindromes.</p>
+</div>
+<div class="section" id="exercice-2">
+<h2>Exercice 2 [★]<a class="headerlink" href="#exercice-2" title="Permalink to this headline">¶</a></h2>
+<p>Que faire si nous voulons appliquer la même fonction sur plusieurs éléments d’une liste.</p>
+<p>Prenons l’exemple suivant : supposons que nous ayons une fonction qui puisse retourner le carré d’un nombre. Nous voulons maintenant appliquer cette fonction à tous les nombres d’une liste. Nous pouvons écrire un programme avec une boucle pour y parvenir. Mais nous allons écrire un programme plus petit pour y parvenir.</p>
+<p><span class="math notranslate nohighlight">\(f(x) = x ^ 2\)</span></p>
+<p><span class="math notranslate nohighlight">\(g([a,b,...]) = [f(a), f(b), ..]\)</span></p>
+<p><span class="math notranslate nohighlight">\(g([a,b,...]) = [a^2, b^2, ..]\)</span></p>
+<p>Python fournit une autre fonction intégrée appelée <code class="docutils literal notranslate"><span class="pre">map(function,</span> <span class="pre">iterable,</span> <span class="pre">...)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>map<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">item</span> <span class="o">*</span> <span class="n">item</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="n">squared</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mais que faire si notre programme prend plusieurs entrées.</p>
+<p>L’exemple suivant montre ce cas. La fonction <code class="docutils literal notranslate"><span class="pre">product()</span></code> prend deux nombres en entrée et renvoie leur produit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">product</span><span class="p">(</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">item1</span> <span class="o">*</span> <span class="n">item2</span>
+
+<span class="n">num1</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>
+<span class="n">num2</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>
+<span class="n">product_value</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">product</span><span class="p">,</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Enfin, nous examinons une autre fonction appelée reduce() qui applique une fonction de deux arguments de manière cumulative sur les membres de la liste, de gauche à droite.</p>
+<p><span class="math notranslate nohighlight">\(f(x) = x ^ 2\)</span></p>
+<p><span class="math notranslate nohighlight">\(g([a,b,...]) = [f(a), f(b), ..]\)</span></p>
+<p><span class="math notranslate nohighlight">\(g([a,b,...]) = [a^2, b^2, ..]\)</span></p>
+<p><span class="math notranslate nohighlight">\(h(g([a,b,c,..])) = (((a^2 + b^2) + c^2) + ...) \)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+
+reduce<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans l’exemple suivant, nous calculons la somme des membres d’une liste.</p>
+<p>Nous passons la fonction sum_num() comme premier argument à la fonction reduce. sum_num() prend deux nombres en entrée et renvoie leur nombre.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">sum_num</span><span class="p">(</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">item1</span> <span class="o">+</span> <span class="n">item2</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+<span class="n">sum_value</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">sum_num</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans l’exemple suivant, nous utilisons la même fonction sum_num(), mais sur des nombres réels.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="n">sum_value</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">sum_num</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans l’exemple suivant, nous utilisons une autre fonction product().</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+
+<span class="k">def</span> <span class="nf">product</span><span class="p">(</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">item1</span> <span class="o">*</span> <span class="n">item2</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="n">sum_num</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">product</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_num</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question</strong>: Écrivez un programme qui prend une liste de matrices de taille 2x2 et calcule la somme de toutes les matrices.</p>
+</div>
+<div class="section" id="exercice-3">
+<h2>Exercice 3 [★★]<a class="headerlink" href="#exercice-3" title="Permalink to this headline">¶</a></h2>
+<p>Dans les exemples suivants, nous utilisons des expressions lambda et les passons comme arguments aux fonctions filter(), map(), et reduce().</p>
+<p>Dans l’exemple suivant, l’expression lambda <code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">x</span> <span class="pre">:</span> <span class="pre">x%2</span></code> prend x en entrée et retourne la valeur de <code class="docutils literal notranslate"><span class="pre">x%2</span></code>. Cette approche est similaire à celle que nous avons vue ci-dessus avec la fonction even().</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="n">filtered</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span> == 0, num))
+<span class="nb">print</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans l’exemple suivant, nous prenons l’exemple avec la fonction odd() et le remplaçons par une expression lambda.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="n">filtered</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span> != 0, num))
+<span class="nb">print</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans l’exemple suivant, nous prenons l’exemple avec la fonction square() et le remplaçons par une expression lambda.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="n">squared</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">squared</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Et si nous voulons passer deux arguments, comme dans l’exemple product() ci-dessus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num1</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>
+<span class="n">num2</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>
+<span class="n">product</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span><span class="n">y</span> <span class="p">,</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">product</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans les exemples suivants, nous utilisons l’expression lambda avec la fonction reduce().</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+<span class="n">sum_value</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Comme dans l’exemple avec sum_num(), nous testons des nombres réels avec les expressions lambda.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+<span class="n">sum_value</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Maintenant, nous remplaçons le produit() par une expression lambda.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+<span class="n">product_value</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">product_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question</strong> Écrivez un programme utilisant map(), reduce() et des expressions lambda pour compter la longueur totale de toutes les chaînes de caractères dans une liste.</p>
+</div>
+<div class="section" id="exercice-4">
+<h2>Exercice 4 [★★]<a class="headerlink" href="#exercice-4" title="Permalink to this headline">¶</a></h2>
+<p>Nous voulons utiliser le multitraitement pour calculer les valeurs en parallèle.
+Pour ce faire, nous utiliserons le paquet multiprocessing.</p>
+<p>D’abord nous trouvons le nombre de processeurs dans notre machine..</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
+mp.cpu_count<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mp</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ensuite, nous allons créer un pool de processus pour le calcul et nous utilisons la méthode Pool().</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
+mp.Pool<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans l’exemple suivant,
+nous créons un pool dont le nombre de processus est égal au nombre de processeurs de notre machine.</p>
+<p>Regardez comment nous transformons notre exemple précédent de map-reduce dans le contexte du multiprocessus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
+
+<span class="n">cpu_count</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">squared</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="k">with</span> <span class="n">mp</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">cpu_count</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+    <span class="n">list_squared</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">squared</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">list_squared</span><span class="p">)</span>
+    <span class="n">product_value</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="n">list_squared</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">product_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans l’exemple suivant, nous voulons télécharger un certain nombre de pages en parallèle.
+Nous passons la fonction download_page() comme entrée à la fonction pool.map().
+Le but de la fonction est de télécharger les pages de Wikidata.
+Vérifiez le résultat du code suivant.</p>
+<p>Changez le nombre de processus et testez le résultat.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">def</span> <span class="nf">download_page</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.wikidata.org/wiki/Special:EntityData/&#39;</span> <span class="o">+</span> <span class="n">item</span> <span class="o">+</span> <span class="s1">&#39;.json&#39;</span><span class="p">)</span>
+    <span class="c1"># success</span>
+    <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">item</span> <span class="o">+</span> <span class="s2">&quot;.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">w</span><span class="p">:</span>
+            <span class="n">w</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()))</span>
+        <span class="n">w</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
+
+<span class="n">process_count</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">pages</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">,</span> <span class="s2">&quot;Q3&quot;</span><span class="p">,</span> <span class="s2">&quot;Q4&quot;</span><span class="p">,</span> <span class="s2">&quot;Q5&quot;</span><span class="p">,</span> <span class="s2">&quot;Q6&quot;</span><span class="p">]</span>
+<span class="k">with</span> <span class="n">mp</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">process_count</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">download_page</span><span class="p">,</span> <span class="n">pages</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Maintenant, nous voulons analyser les pages téléchargées. Dans l’exemple suivant,
+nous comptons le nombre d’URLs contenant “<a class="reference external" href="http://wikipedia.org">wikipedia.org</a>”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">def</span> <span class="nf">analyse_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">w</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">tokens</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+        <span class="n">urls</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="s2">&quot;wikipedia.org&quot;</span> <span class="ow">in</span> <span class="n">w</span><span class="p">,</span> <span class="n">tokens</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">0</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">json_files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="s2">&quot;.json&quot;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">,</span> <span class="n">files</span><span class="p">))</span>
+
+<span class="k">with</span> <span class="n">mp</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">cpu_count</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">analyse_file</span><span class="p">,</span> <span class="n">json_files</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+    <span class="n">total_count</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">counts</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">total_count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question</strong>: Écrivez un programme qui interroge Wikidata pour obtenir 100 URL d’images de villes et qui
+télécharge les images sur votre machine en utilisant multiprocessing et map().
+Le programme doit ensuite analyser chaque image téléchargée et trouver les deux couleurs prédominantes de chaque image, toujours en utilisant multiprocessing et map().</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./fr/TP4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../TP3/tp3.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">TP 3</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../TP5/tp5.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">TP 5</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By John Samuel<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
