@@ -21,7 +21,7 @@
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -37,7 +37,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -522,7 +522,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialization</span>
-<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -533,7 +533,7 @@ Dans ce but, nous utiliserons un point d’interrogation (?) après le nom de la
 comme indiqué ci-dessous.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>filter<span class="o">?</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>filter
 </pre></div>
 </div>
 </div>
@@ -543,7 +543,7 @@ comme indiqué ci-dessous.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use of filter function with None as the first parameter</span>
-<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
 <span class="n">filtered</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
 </pre></div>
@@ -557,11 +557,12 @@ sinon <code class="docutils literal notranslate"><span class="pre">False</span><
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">even</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">item</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">return</span> <span class="kc">False</span>
 
-<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
 <span class="n">filtered</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">even</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
 </pre></div>
@@ -573,11 +574,12 @@ sinon <code class="docutils literal notranslate"><span class="pre">False</span><
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">odd</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">item</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">False</span>
     <span class="k">return</span> <span class="kc">True</span>
 
-<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
 <span class="n">filtered</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">odd</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
 </pre></div>
@@ -596,7 +598,7 @@ sinon <code class="docutils literal notranslate"><span class="pre">False</span><
 <p>Python fournit une autre fonction intégrée appelée <code class="docutils literal notranslate"><span class="pre">map(function,</span> <span class="pre">iterable,</span> <span class="pre">...)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>map<span class="o">?</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>map
 </pre></div>
 </div>
 </div>
@@ -606,7 +608,8 @@ sinon <code class="docutils literal notranslate"><span class="pre">False</span><
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">item</span> <span class="o">*</span> <span class="n">item</span>
 
-<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
 <span class="n">squared</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
 </pre></div>
@@ -620,9 +623,10 @@ sinon <code class="docutils literal notranslate"><span class="pre">False</span><
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">product</span><span class="p">(</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">item1</span> <span class="o">*</span> <span class="n">item2</span>
 
-<span class="n">num1</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+
+<span class="n">num1</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>
-<span class="n">num2</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="n">num2</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>
 <span class="n">product_value</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">product</span><span class="p">,</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
@@ -639,7 +643,7 @@ sinon <code class="docutils literal notranslate"><span class="pre">False</span><
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
 
-reduce<span class="o">?</span>
+<span class="o">?</span>reduce
 </pre></div>
 </div>
 </div>
@@ -651,10 +655,12 @@ reduce<span class="o">?</span>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
+
 <span class="k">def</span> <span class="nf">sum_num</span><span class="p">(</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">item1</span> <span class="o">+</span> <span class="n">item2</span>
 
-<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 
 <span class="n">sum_value</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">sum_num</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
@@ -666,7 +672,7 @@ reduce<span class="o">?</span>
 <p>Dans l’exemple suivant, nous utilisons la même fonction sum_num(), mais sur des nombres réels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 <span class="n">sum_value</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">sum_num</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sum_value</span><span class="p">)</span>
@@ -679,10 +685,12 @@ reduce<span class="o">?</span>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
 
+
 <span class="k">def</span> <span class="nf">product</span><span class="p">(</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">item1</span> <span class="o">*</span> <span class="n">item2</span>
 
-<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 <span class="n">sum_num</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">product</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sum_num</span><span class="p">)</span>
@@ -698,8 +706,8 @@ reduce<span class="o">?</span>
 <p>Dans l’exemple suivant, l’expression lambda <code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">x</span> <span class="pre">:</span> <span class="pre">x%2</span></code> prend x en entrée et retourne la valeur de <code class="docutils literal notranslate"><span class="pre">x%2</span></code>. Cette approche est similaire à celle que nous avons vue ci-dessus avec la fonction even().</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
-<span class="n">filtered</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span> == 0, num))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
+<span class="n">filtered</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -708,8 +716,8 @@ reduce<span class="o">?</span>
 <p>Dans l’exemple suivant, nous prenons l’exemple avec la fonction odd() et le remplaçons par une expression lambda.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
-<span class="n">filtered</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span> != 0, num))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
+<span class="n">filtered</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -718,8 +726,8 @@ reduce<span class="o">?</span>
 <p>Dans l’exemple suivant, nous prenons l’exemple avec la fonction square() et le remplaçons par une expression lambda.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
-<span class="n">squared</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
+<span class="n">squared</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">squared</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -728,11 +736,11 @@ reduce<span class="o">?</span>
 <p>Et si nous voulons passer deux arguments, comme dans l’exemple product() ci-dessus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num1</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num1</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>
-<span class="n">num2</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="n">num2</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>
-<span class="n">product</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span><span class="n">y</span> <span class="p">,</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">))</span>
+<span class="n">product</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">product</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -744,10 +752,10 @@ reduce<span class="o">?</span>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
-<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 
-<span class="n">sum_value</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+<span class="n">sum_value</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sum_value</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -759,10 +767,10 @@ reduce<span class="o">?</span>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
-<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 
-<span class="n">sum_value</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+<span class="n">sum_value</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sum_value</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -774,10 +782,10 @@ reduce<span class="o">?</span>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
-<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 
-<span class="n">product_value</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+<span class="n">product_value</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">product_value</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -793,7 +801,8 @@ Pour ce faire, nous utiliserons le paquet multiprocessing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
-mp.cpu_count<span class="o">?</span>
+
+<span class="o">?</span>mp.cpu_count
 </pre></div>
 </div>
 </div>
@@ -801,6 +810,7 @@ mp.cpu_count<span class="o">?</span>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">mp</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -810,7 +820,8 @@ mp.cpu_count<span class="o">?</span>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
-mp.Pool<span class="o">?</span>
+
+<span class="o">?</span>mp.Pool
 </pre></div>
 </div>
 </div>
@@ -825,14 +836,16 @@ nous créons un pool dont le nombre de processus est égal au nombre de processe
 
 <span class="n">cpu_count</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
 
+
 <span class="k">def</span> <span class="nf">squared</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
 
-<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
 <span class="k">with</span> <span class="n">mp</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">cpu_count</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
     <span class="n">list_squared</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">squared</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">list_squared</span><span class="p">)</span>
-    <span class="n">product_value</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="n">list_squared</span><span class="p">)</span>
+    <span class="n">product_value</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="n">list_squared</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">product_value</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -847,14 +860,18 @@ Vérifiez le résultat du code suivant.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 
+
 <span class="k">def</span> <span class="nf">download_page</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.wikidata.org/wiki/Special:EntityData/&#39;</span> <span class="o">+</span> <span class="n">item</span> <span class="o">+</span> <span class="s1">&#39;.json&#39;</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="s2">&quot;https://www.wikidata.org/wiki/Special:EntityData/&quot;</span> <span class="o">+</span> <span class="n">item</span> <span class="o">+</span> <span class="s2">&quot;.json&quot;</span>
+    <span class="p">)</span>
     <span class="c1"># success</span>
     <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">item</span> <span class="o">+</span> <span class="s2">&quot;.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">w</span><span class="p">:</span>
             <span class="n">w</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()))</span>
         <span class="n">w</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
+
 
 <span class="n">process_count</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">pages</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">,</span> <span class="s2">&quot;Q3&quot;</span><span class="p">,</span> <span class="s2">&quot;Q4&quot;</span><span class="p">,</span> <span class="s2">&quot;Q5&quot;</span><span class="p">,</span> <span class="s2">&quot;Q6&quot;</span><span class="p">]</span>
@@ -871,6 +888,7 @@ nous comptons le nombre d’URLs contenant “<a class="reference external" href
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 
+
 <span class="k">def</span> <span class="nf">analyse_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">w</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -879,13 +897,14 @@ nous comptons le nombre d’URLs contenant “<a class="reference external" href
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span>
     <span class="k">return</span> <span class="mi">0</span>
 
+
 <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
 <span class="n">json_files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="s2">&quot;.json&quot;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">,</span> <span class="n">files</span><span class="p">))</span>
 
 <span class="k">with</span> <span class="n">mp</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">cpu_count</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
     <span class="n">counts</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">analyse_file</span><span class="p">,</span> <span class="n">json_files</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
-    <span class="n">total_count</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">counts</span><span class="p">)</span>
+    <span class="n">total_count</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">counts</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">total_count</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -909,7 +928,7 @@ Le programme doit ensuite analyser chaque image téléchargée et trouver les de
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./fr/TP4"
         },
         predefinedOutput: true
