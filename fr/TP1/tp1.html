@@ -409,6 +409,7 @@
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3 ★★</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gestion-des-valeurs-manquantes">Gestion des valeurs manquantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtrage-des-donnees">Filtrage des données</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groupement-et-agregation">Groupement et agrégation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exportation-des-donnees">Exportation des données</a></li>
 </ul>
@@ -870,6 +871,13 @@ Consultez <a class="reference external" href="https://pandas.pydata.org/pandas-d
 </div>
 </div>
 </div>
+</section>
+<section id="filtrage-des-donnees">
+<h2>Filtrage des données<a class="headerlink" href="#filtrage-des-donnees" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Extraire toutes les lignes où “year” est supérieur à 1960.</p></li>
+<li><p>Extraire toutes les lignes où “languageLabel” est “BCPL”.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;i4&quot;</span><span class="p">,</span> <span class="s2">&quot;languageLabel&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;U200&quot;</span><span class="p">})</span>
@@ -935,11 +943,6 @@ Consultez <a class="reference external" href="https://pandas.pydata.org/pandas-d
 </div>
 </div>
 <p><strong>Question :</strong> Quelle est la différence entre <code class="docutils literal notranslate"><span class="pre">json.load()</span></code> et <code class="docutils literal notranslate"><span class="pre">json.loads()</span></code> en Python ?</p>
-<p>Filtrage des données</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Extraire toutes les lignes où &quot;year&quot; est supérieur à 2000.
-Extraire toutes les lignes où &quot;languageLabel&quot; est &quot;English&quot;.
-</pre></div>
-</div>
 </section>
 </section>
 <section id="exercice-4">
@@ -1373,6 +1376,7 @@ les résultats de l’interrogation ci-dessus) depuis 2010.</p></li>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3 ★★</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gestion-des-valeurs-manquantes">Gestion des valeurs manquantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtrage-des-donnees">Filtrage des données</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groupement-et-agregation">Groupement et agrégation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exportation-des-donnees">Exportation des données</a></li>
 </ul>

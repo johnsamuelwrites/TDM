@@ -463,27 +463,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy in /home/john/contributions/venv/lib/python3.10/site-packages (1.24.3)
-Requirement already satisfied: pandas in /home/john/contributions/venv/lib/python3.10/site-packages (2.0.1)
-Requirement already satisfied: matplotlib in /home/john/contributions/venv/lib/python3.10/site-packages (3.7.1)
-Requirement already satisfied: sparqlwrapper in /home/john/contributions/venv/lib/python3.10/site-packages (2.0.0)
-Requirement already satisfied: pytz&gt;=2020.1 in /home/john/contributions/venv/lib/python3.10/site-packages (from pandas) (2023.3)
-Requirement already satisfied: tzdata&gt;=2022.1 in /home/john/contributions/venv/lib/python3.10/site-packages (from pandas) (2023.3)
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/john/contributions/venv/lib/python3.10/site-packages (from pandas) (2.8.2)
-Requirement already satisfied: pyparsing&gt;=2.3.1 in /home/john/contributions/venv/lib/python3.10/site-packages (from matplotlib) (3.0.9)
-Requirement already satisfied: packaging&gt;=20.0 in /home/john/contributions/venv/lib/python3.10/site-packages (from matplotlib) (23.1)
-Requirement already satisfied: pillow&gt;=6.2.0 in /home/john/contributions/venv/lib/python3.10/site-packages (from matplotlib) (9.5.0)
-Requirement already satisfied: contourpy&gt;=1.0.1 in /home/john/contributions/venv/lib/python3.10/site-packages (from matplotlib) (1.0.7)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /home/john/contributions/venv/lib/python3.10/site-packages (from matplotlib) (1.4.4)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /home/john/contributions/venv/lib/python3.10/site-packages (from matplotlib) (4.39.4)
-Requirement already satisfied: cycler&gt;=0.10 in /home/john/contributions/venv/lib/python3.10/site-packages (from matplotlib) (0.11.0)
-Requirement already satisfied: rdflib&gt;=6.1.1 in /home/john/contributions/venv/lib/python3.10/site-packages (from sparqlwrapper) (7.0.0)
-Requirement already satisfied: six&gt;=1.5 in /home/john/contributions/venv/lib/python3.10/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
-Requirement already satisfied: isodate&lt;0.7.0,&gt;=0.6.0 in /home/john/contributions/venv/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (0.6.1)
-</pre></div>
-</div>
-</div>
 </div>
 <p>To import the NumPy, pandas libraries in a Jupyter notebook, you use the following Python import statements:</p>
 <div class="cell docutils container">
@@ -503,14 +482,6 @@ Requirement already satisfied: isodate&lt;0.7.0,&gt;=0.6.0 in /home/john/contrib
 <span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">plot</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sw</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.24.3
-2.0.1
-3.7.1
-2.0.0
 </pre></div>
 </div>
 </div>
@@ -542,48 +513,6 @@ datatypes (U100, i4), where U100 corresponds to 100-character unicode string and
     <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">,</span>  <span class="c1"># UTF-8 encoding</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;ENIAC coding system&#39;, 1943) (&#39;ENIAC Short Code&#39;, 1946)
- (&#39;Von Neumann and Goldstine graphing system&#39;, 1946)
- (&#39;ARC Assembly&#39;, 1947) (&#39;Plankalkül&#39;, 1948) (&#39;CPC Coding scheme&#39;, 1948)
- (&#39;Curry notation system&#39;, 1948) (&#39;Short Code&#39;, 1949)
- (&#39;assembly language&#39;, 1949) (&#39;Short Code&#39;, 1950) (&#39;G-code&#39;, 1950)
- (&#39;Birkbeck Assembler&#39;, 1950) (&#39;Superplan&#39;, 1951) (&#39;ALGAE&#39;, 1951)
- (&#39;Intermediate Programming Language&#39;, 1951)
- (&#39;Regional Assembly Language&#39;, 1951)
- (&#39;Boehm unnamed coding system&#39;, 1951) (&#39;Klammerausdrücke&#39;, 1951)
- (&#39;OMNIBAC Symbolic Assembler&#39;, 1951) (&#39;Stanislaus&#39;, 1951)
- (&#39;Whirlwind assembler&#39;, 1951) (&#39;Rochester assembler&#39;, 1951)
- (&#39;Sort Merge Generator&#39;, 1951) (&#39;autocode&#39;, 1952) (&#39;A-0 System&#39;, 1952)
- (&#39;Editing Generator&#39;, 1952) (&#39;COMPOOL&#39;, 1952) (&#39;Speedcoding&#39;, 1953)
- (&#39;READ/PRINT&#39;, 1953) (&#39;Fortran&#39;, 1954) (&#39;ARITH-MATIC&#39;, 1954)
- (&#39;autocode&#39;, 1954) (&#39;Laning and Zierler system&#39;, 1954)
- (&#39;MATH-MATIC&#39;, 1954) (&#39;MATRIX MATH&#39;, 1954) (&#39;FLOW-MATIC&#39;, 1955)
- (&#39;PACT&#39;, 1955) (&#39;BACAIC&#39;, 1955) (&#39;Freiburger Code&#39;, 1955)
- (&#39;Sequentielle Formelübersetzung&#39;, 1955) (&#39;Internal Translator&#39;, 1955)
- (&#39;PRINT&#39;, 1955) (&#39;Information Processing Language&#39;, 1956)
- (&#39;FORTRAN for the IBM 704&#39;, 1956) (&#39;Fortran&#39;, 1957) (&#39;COMTRAN&#39;, 1957)
- (&#39;GEORGE&#39;, 1957) (&#39;UNICODE&#39;, 1957) (&#39;ALGOL 58&#39;, 1958) (&#39;Lisp&#39;, 1958)
- (&#39;ALGOL&#39;, 1958) (&#39;FORTRAN III&#39;, 1958) (&#39;FORTRAN II&#39;, 1958)
- (&#39;JOVIAL&#39;, 1959) (&#39;TRAC&#39;, 1959) (&#39;COBOL&#39;, 1959) (&#39;MAD&#39;, 1959)
- (&#39;Lisp&#39;, 1959) (&#39;FACT&#39;, 1959) (&#39;COBOL&#39;, 1960) (&#39;ALCOR&#39;, 1960)
- (&#39;ALGOL 60&#39;, 1960) (&#39;FORTRAN IV&#39;, 1961) (&#39;TECO&#39;, 1962) (&#39;SNOBOL&#39;, 1962)
- (&#39;APL&#39;, 1962) (&#39;Simula&#39;, 1962) (&#39;CORC&#39;, 1962) (&#39;CPL&#39;, 1963)
- (&#39;JOSS&#39;, 1963) (&#39;P′′&#39;, 1964) (&#39;Report Program Generator&#39;, 1964)
- (&#39;TRAC&#39;, 1964) (&#39;BASIC&#39;, 1964) (&#39;COWSEL&#39;, 1964) (&#39;MARK IV&#39;, 1964)
- (&#39;MIMIC&#39;, 1964) (&#39;PL/I&#39;, 1964) (&#39;Speakeasy&#39;, 1964) (&#39;IBM RPG II&#39;, 1965)
- (&#39;Atlas Autocode&#39;, 1965) (&#39;TELCOMP&#39;, 1965) (&#39;Euler&#39;, 1966)
- (&#39;ISWIM&#39;, 1966) (&#39;ALGOL W&#39;, 1966)
- (&#39;Massachusetts General Hospital Utility Multi-Programming System&#39;, 1966)
- (&#39;JOSS&#39;, 1966) (&#39;Coral 66&#39;, 1966) (&#39;BCPL&#39;, 1966) (&#39;APL&#39;, 1966)
- (&#39;FORTRAN 66&#39;, 1966)
- (&#39;Massachusetts General Hospital Utility Multi-Programming System&#39;, 1967)
- (&#39;Hop&#39;, 1967) (&#39;XPL&#39;, 1967) (&#39;Interlisp&#39;, 1967) (&#39;BCPL&#39;, 1967)
- (&#39;Simula&#39;, 1967) (&#39;Space Programming Language&#39;, 1967) (&#39;PILOT&#39;, 1968)
- (&#39;ALGOL 68&#39;, 1968)]
 </pre></div>
 </div>
 </div>
@@ -643,48 +572,6 @@ tsv file.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;ENIAC coding system&#39;, 1943) (&#39;ENIAC Short Code&#39;, 1946)
- (&#39;Von Neumann and Goldstine graphing system&#39;, 1946)
- (&#39;ARC Assembly&#39;, 1947) (&#39;Plankalkül&#39;, 1948) (&#39;CPC Coding scheme&#39;, 1948)
- (&#39;Curry notation system&#39;, 1948) (&#39;Short Code&#39;, 1949)
- (&#39;assembly language&#39;, 1949) (&#39;Short Code&#39;, 1950)
- (&#39;Birkbeck Assembler&#39;, 1950) (&#39;G-code&#39;, 1950) (&#39;Superplan&#39;, 1951)
- (&#39;ALGAE&#39;, 1951) (&#39;Intermediate Programming Language&#39;, 1951)
- (&#39;Regional Assembly Language&#39;, 1951)
- (&#39;Boehm unnamed coding system&#39;, 1951) (&#39;Klammerausdrücke&#39;, 1951)
- (&#39;OMNIBAC Symbolic Assembler&#39;, 1951) (&#39;Stanislaus&#39;, 1951)
- (&#39;Whirlwind assembler&#39;, 1951) (&#39;Rochester assembler&#39;, 1951)
- (&#39;Sort Merge Generator&#39;, 1951) (&#39;Editing Generator&#39;, 1952)
- (&#39;COMPOOL&#39;, 1952) (&#39;autocode&#39;, 1952) (&#39;A-0 System&#39;, 1952)
- (&#39;READ/PRINT&#39;, 1953) (&#39;Speedcoding&#39;, 1953) (&#39;Fortran&#39;, 1954)
- (&#39;MATRIX MATH&#39;, 1954) (&#39;autocode&#39;, 1954) (&#39;ARITH-MATIC&#39;, 1954)
- (&#39;Laning and Zierler system&#39;, 1954) (&#39;MATH-MATIC&#39;, 1954)
- (&#39;FLOW-MATIC&#39;, 1955) (&#39;BACAIC&#39;, 1955) (&#39;Freiburger Code&#39;, 1955)
- (&#39;Sequentielle Formelübersetzung&#39;, 1955) (&#39;Internal Translator&#39;, 1955)
- (&#39;PRINT&#39;, 1955) (&#39;PACT&#39;, 1955) (&#39;Information Processing Language&#39;, 1956)
- (&#39;FORTRAN for the IBM 704&#39;, 1956) (&#39;Fortran&#39;, 1957) (&#39;UNICODE&#39;, 1957)
- (&#39;COMTRAN&#39;, 1957) (&#39;GEORGE&#39;, 1957) (&#39;ALGOL 58&#39;, 1958) (&#39;Lisp&#39;, 1958)
- (&#39;FORTRAN III&#39;, 1958) (&#39;FORTRAN II&#39;, 1958) (&#39;ALGOL&#39;, 1958)
- (&#39;JOVIAL&#39;, 1959) (&#39;TRAC&#39;, 1959) (&#39;COBOL&#39;, 1959) (&#39;Lisp&#39;, 1959)
- (&#39;MAD&#39;, 1959) (&#39;FACT&#39;, 1959) (&#39;COBOL&#39;, 1960) (&#39;COBOL&#39;, 1960)
- (&#39;ALGOL 60&#39;, 1960) (&#39;ALCOR&#39;, 1960) (&#39;FORTRAN IV&#39;, 1961) (&#39;SNOBOL&#39;, 1962)
- (&#39;TECO&#39;, 1962) (&#39;Simula&#39;, 1962) (&#39;APL&#39;, 1962) (&#39;CORC&#39;, 1962)
- (&#39;CPL&#39;, 1963) (&#39;JOSS&#39;, 1963) (&#39;P′′&#39;, 1964)
- (&#39;Report Program Generator&#39;, 1964) (&#39;TRAC&#39;, 1964) (&#39;BASIC&#39;, 1964)
- (&#39;COWSEL&#39;, 1964) (&#39;PL/I&#39;, 1964) (&#39;MARK IV&#39;, 1964) (&#39;MIMIC&#39;, 1964)
- (&#39;Speakeasy&#39;, 1964) (&#39;IBM RPG II&#39;, 1965) (&#39;Atlas Autocode&#39;, 1965)
- (&#39;TELCOMP&#39;, 1965) (&#39;Euler&#39;, 1966) (&#39;ISWIM&#39;, 1966) (&#39;ALGOL W&#39;, 1966)
- (&#39;JOSS&#39;, 1966)
- (&#39;Massachusetts General Hospital Utility Multi-Programming System&#39;, 1966)
- (&#39;BCPL&#39;, 1966) (&#39;Coral 66&#39;, 1966) (&#39;FORTRAN 66&#39;, 1966) (&#39;APL&#39;, 1966)
- (&#39;Hop&#39;, 1967)
- (&#39;Massachusetts General Hospital Utility Multi-Programming System&#39;, 1967)
- (&#39;Space Programming Language&#39;, 1967) (&#39;BCPL&#39;, 1967) (&#39;Interlisp&#39;, 1967)
- (&#39;Simula&#39;, 1967) (&#39;XPL&#39;, 1967) (&#39;PILOT&#39;, 1968)]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Note the changes in the above code compared to the previous one. A TSV
 file is a tab-separated file, i.e., the column values are separated by a
@@ -710,21 +597,11 @@ tab ((\t)).</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
-</pre></div>
-</div>
-</div>
 </div>
 <p>You can also display the output of variables and methods in a notebook without <code class="docutils literal notranslate"><span class="pre">print()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
 </pre></div>
 </div>
 </div>
@@ -739,56 +616,11 @@ tab ((\t)).</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;ENIAC coding system&#39;, &#39;ENIAC Short Code&#39;,
-       &#39;Von Neumann and Goldstine graphing system&#39;, &#39;ARC Assembly&#39;,
-       &#39;Plankalkül&#39;, &#39;CPC Coding scheme&#39;, &#39;Curry notation system&#39;,
-       &#39;Short Code&#39;, &#39;assembly language&#39;, &#39;Short Code&#39;,
-       &#39;Birkbeck Assembler&#39;, &#39;G-code&#39;, &#39;Superplan&#39;, &#39;ALGAE&#39;,
-       &#39;Intermediate Programming Language&#39;, &#39;Regional Assembly Language&#39;,
-       &#39;Boehm unnamed coding system&#39;, &#39;Klammerausdrücke&#39;,
-       &#39;OMNIBAC Symbolic Assembler&#39;, &#39;Stanislaus&#39;, &#39;Whirlwind assembler&#39;,
-       &#39;Rochester assembler&#39;, &#39;Sort Merge Generator&#39;, &#39;Editing Generator&#39;,
-       &#39;COMPOOL&#39;, &#39;autocode&#39;, &#39;A-0 System&#39;, &#39;READ/PRINT&#39;, &#39;Speedcoding&#39;,
-       &#39;Fortran&#39;, &#39;MATRIX MATH&#39;, &#39;autocode&#39;, &#39;ARITH-MATIC&#39;,
-       &#39;Laning and Zierler system&#39;, &#39;MATH-MATIC&#39;, &#39;FLOW-MATIC&#39;, &#39;BACAIC&#39;,
-       &#39;Freiburger Code&#39;, &#39;Sequentielle Formelübersetzung&#39;,
-       &#39;Internal Translator&#39;, &#39;PRINT&#39;, &#39;PACT&#39;,
-       &#39;Information Processing Language&#39;, &#39;FORTRAN for the IBM 704&#39;,
-       &#39;Fortran&#39;, &#39;UNICODE&#39;, &#39;COMTRAN&#39;, &#39;GEORGE&#39;, &#39;ALGOL 58&#39;, &#39;Lisp&#39;,
-       &#39;FORTRAN III&#39;, &#39;FORTRAN II&#39;, &#39;ALGOL&#39;, &#39;JOVIAL&#39;, &#39;TRAC&#39;, &#39;COBOL&#39;,
-       &#39;Lisp&#39;, &#39;MAD&#39;, &#39;FACT&#39;, &#39;COBOL&#39;, &#39;COBOL&#39;, &#39;ALGOL 60&#39;, &#39;ALCOR&#39;,
-       &#39;FORTRAN IV&#39;, &#39;SNOBOL&#39;, &#39;TECO&#39;, &#39;Simula&#39;, &#39;APL&#39;, &#39;CORC&#39;, &#39;CPL&#39;,
-       &#39;JOSS&#39;, &#39;P′′&#39;, &#39;Report Program Generator&#39;, &#39;TRAC&#39;, &#39;BASIC&#39;,
-       &#39;COWSEL&#39;, &#39;PL/I&#39;, &#39;MARK IV&#39;, &#39;MIMIC&#39;, &#39;Speakeasy&#39;, &#39;IBM RPG II&#39;,
-       &#39;Atlas Autocode&#39;, &#39;TELCOMP&#39;, &#39;Euler&#39;, &#39;ISWIM&#39;, &#39;ALGOL W&#39;, &#39;JOSS&#39;,
-       &#39;Massachusetts General Hospital Utility Multi-Programming System&#39;,
-       &#39;BCPL&#39;, &#39;Coral 66&#39;, &#39;FORTRAN 66&#39;, &#39;APL&#39;, &#39;Hop&#39;,
-       &#39;Massachusetts General Hospital Utility Multi-Programming System&#39;,
-       &#39;Space Programming Language&#39;, &#39;BCPL&#39;, &#39;Interlisp&#39;, &#39;Simula&#39;, &#39;XPL&#39;,
-       &#39;PILOT&#39;], dtype=&#39;&lt;U100&#39;)
-</pre></div>
-</div>
-</div>
 </div>
 <p>Extract and print only the “year” column from the dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1943, 1946, 1946, 1947, 1948, 1948, 1948, 1949, 1949, 1950, 1950,
-       1950, 1951, 1951, 1951, 1951, 1951, 1951, 1951, 1951, 1951, 1951,
-       1951, 1952, 1952, 1952, 1952, 1953, 1953, 1954, 1954, 1954, 1954,
-       1954, 1954, 1955, 1955, 1955, 1955, 1955, 1955, 1955, 1956, 1956,
-       1957, 1957, 1957, 1957, 1958, 1958, 1958, 1958, 1958, 1959, 1959,
-       1959, 1959, 1959, 1959, 1960, 1960, 1960, 1960, 1961, 1962, 1962,
-       1962, 1962, 1962, 1963, 1963, 1964, 1964, 1964, 1964, 1964, 1964,
-       1964, 1964, 1964, 1965, 1965, 1965, 1966, 1966, 1966, 1966, 1966,
-       1966, 1966, 1966, 1966, 1967, 1967, 1967, 1967, 1967, 1967, 1967,
-       1968], dtype=int32)
 </pre></div>
 </div>
 </div>
@@ -801,25 +633,6 @@ tab ((\t)).</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1960</span><span class="p">]</span>
 <span class="n">filtered_data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([(&#39;FORTRAN IV&#39;, 1961), (&#39;SNOBOL&#39;, 1962), (&#39;TECO&#39;, 1962),
-       (&#39;Simula&#39;, 1962), (&#39;APL&#39;, 1962), (&#39;CORC&#39;, 1962), (&#39;CPL&#39;, 1963),
-       (&#39;JOSS&#39;, 1963), (&#39;P′′&#39;, 1964), (&#39;Report Program Generator&#39;, 1964),
-       (&#39;TRAC&#39;, 1964), (&#39;BASIC&#39;, 1964), (&#39;COWSEL&#39;, 1964), (&#39;PL/I&#39;, 1964),
-       (&#39;MARK IV&#39;, 1964), (&#39;MIMIC&#39;, 1964), (&#39;Speakeasy&#39;, 1964),
-       (&#39;IBM RPG II&#39;, 1965), (&#39;Atlas Autocode&#39;, 1965), (&#39;TELCOMP&#39;, 1965),
-       (&#39;Euler&#39;, 1966), (&#39;ISWIM&#39;, 1966), (&#39;ALGOL W&#39;, 1966),
-       (&#39;JOSS&#39;, 1966),
-       (&#39;Massachusetts General Hospital Utility Multi-Programming System&#39;, 1966),
-       (&#39;BCPL&#39;, 1966), (&#39;Coral 66&#39;, 1966), (&#39;FORTRAN 66&#39;, 1966),
-       (&#39;APL&#39;, 1966), (&#39;Hop&#39;, 1967),
-       (&#39;Massachusetts General Hospital Utility Multi-Programming System&#39;, 1967),
-       (&#39;Space Programming Language&#39;, 1967), (&#39;BCPL&#39;, 1967),
-       (&#39;Interlisp&#39;, 1967), (&#39;Simula&#39;, 1967), (&#39;XPL&#39;, 1967),
-       (&#39;PILOT&#39;, 1968)], dtype=[(&#39;name&#39;, &#39;&lt;U100&#39;), (&#39;year&#39;, &#39;&lt;i4&#39;)])
 </pre></div>
 </div>
 </div>
@@ -843,23 +656,12 @@ tab ((\t)).</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error: could not convert string &#39;&#39; to int32 at row 1, column 2.
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load using np.genfromtxt (handles missing values)</span>
 <span class="n">dataset_with_missing_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s2">&quot;pl_missing.csv&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">),</span> <span class="s2">&quot;formats&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;U100&quot;</span><span class="p">,</span> <span class="s2">&quot;i4&quot;</span><span class="p">)},</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span>
 <span class="n">dataset_with_missing_values</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([(&#39;Simula&#39;, 1962), (&#39;Swift&#39;,   -1)],
-      dtype=[(&#39;name&#39;, &#39;&lt;U100&#39;), (&#39;year&#39;, &#39;&lt;i4&#39;)])
 </pre></div>
 </div>
 </div>
@@ -882,11 +684,6 @@ tab ((\t)).</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array((&#39;Swift&#39;, -1), dtype=[(&#39;Simula&#39;, &#39;&lt;U100&#39;), (&#39;1962&#39;, &#39;&lt;i4&#39;)])
-</pre></div>
-</div>
-</div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code> will raise an error due to missing values. <code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code> will load the dataset, replacing missing values with nan or a default value.</p>
 </section>
@@ -904,89 +701,6 @@ tab ((\t)).</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>name</th>
-      <th>year</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>ENIAC coding system</td>
-      <td>1943</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>ENIAC Short Code</td>
-      <td>1946</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Von Neumann and Goldstine graphing system</td>
-      <td>1946</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>ARC Assembly</td>
-      <td>1947</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Plankalkül</td>
-      <td>1948</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>95</th>
-      <td>BCPL</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>96</th>
-      <td>Interlisp</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>97</th>
-      <td>Simula</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>98</th>
-      <td>XPL</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>99</th>
-      <td>PILOT</td>
-      <td>1968</td>
-    </tr>
-  </tbody>
-</table>
-<p>100 rows × 2 columns</p>
-</div></div></div>
 </div>
 <p><strong>Question</strong>: What is the difference between np.loadtxt() and np.genfromtxt() when reading CSV files? When should you prefer one over the other?</p>
 </section>
@@ -1030,24 +744,6 @@ Take a look at <a class="reference external" href="https://pandas.pydata.org/pan
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                languageLabel  year
-0                         ENIAC coding system  1943
-1                            ENIAC Short Code  1946
-2   Von Neumann and Goldstine graphing system  1946
-3                                ARC Assembly  1947
-4                                  Plankalkül  1948
-..                                        ...   ...
-95                                       BCPL  1967
-96                                  Interlisp  1967
-97                                     Simula  1967
-98                                        XPL  1967
-99                                      PILOT  1968
-
-[100 rows x 2 columns]
-</pre></div>
-</div>
-</div>
 </div>
 <p>This code is using Python’s pandas library to work with JSON data.</p>
 <p>*. <strong>Imports</strong>:</p>
@@ -1074,111 +770,12 @@ Take a look at <a class="reference external" href="https://pandas.pydata.org/pan
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>languageLabel</th>
-      <th>year</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>ENIAC coding system</td>
-      <td>1943</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>ENIAC Short Code</td>
-      <td>1946</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Von Neumann and Goldstine graphing system</td>
-      <td>1946</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>ARC Assembly</td>
-      <td>1947</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Plankalkül</td>
-      <td>1948</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>95</th>
-      <td>BCPL</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>96</th>
-      <td>Interlisp</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>97</th>
-      <td>Simula</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>98</th>
-      <td>XPL</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>99</th>
-      <td>PILOT</td>
-      <td>1968</td>
-    </tr>
-  </tbody>
-</table>
-<p>100 rows × 2 columns</p>
-</div></div></div>
 </div>
 <p>To display the values of the column <strong>year</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the &quot;year&quot; column from the dataframe</span>
 <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     1943
-1     1946
-2     1946
-3     1947
-4     1948
-      ... 
-95    1967
-96    1967
-97    1967
-98    1967
-99    1968
-Name: year, Length: 100, dtype: object
 </pre></div>
 </div>
 </div>
@@ -1191,22 +788,6 @@ Name: year, Length: 100, dtype: object
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                           ENIAC coding system
-1                              ENIAC Short Code
-2     Von Neumann and Goldstine graphing system
-3                                  ARC Assembly
-4                                    Plankalkül
-                        ...                    
-95                                         BCPL
-96                                    Interlisp
-97                                       Simula
-98                                          XPL
-99                                        PILOT
-Name: languageLabel, Length: 100, dtype: object
-</pre></div>
-</div>
-</div>
 </div>
 <p>Getting some important information like count, min, max using the method <code class="docutils literal notranslate"><span class="pre">describe()</span></code>. By default, it focuses on numerical columns (containing numbers) and calculates statistics like mean, standard deviation, quartiles (like 25th and 75th percentile), minimum and maximum values.</p>
 <div class="cell docutils container">
@@ -1216,53 +797,6 @@ Name: languageLabel, Length: 100, dtype: object
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>languageLabel</th>
-      <th>year</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>100</td>
-      <td>100</td>
-    </tr>
-    <tr>
-      <th>unique</th>
-      <td>88</td>
-      <td>24</td>
-    </tr>
-    <tr>
-      <th>top</th>
-      <td>COBOL</td>
-      <td>1951</td>
-    </tr>
-    <tr>
-      <th>freq</th>
-      <td>3</td>
-      <td>11</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">dataframe.describe()</span></code> method in pandas generates descriptive statistics that summarize the central tendency, dispersion, and shape of a dataset’s distribution. Here’s what each part typically includes:</p>
 <ol class="arabic simple">
@@ -1284,27 +818,11 @@ Name: languageLabel, Length: 100, dtype: object
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;1943&#39;, &#39;1946&#39;, &#39;1947&#39;, &#39;1948&#39;, &#39;1949&#39;, &#39;1950&#39;, &#39;1951&#39;, &#39;1952&#39;,
-       &#39;1953&#39;, &#39;1954&#39;, &#39;1955&#39;, &#39;1956&#39;, &#39;1957&#39;, &#39;1958&#39;, &#39;1959&#39;, &#39;1960&#39;,
-       &#39;1961&#39;, &#39;1962&#39;, &#39;1963&#39;, &#39;1964&#39;, &#39;1965&#39;, &#39;1966&#39;, &#39;1967&#39;, &#39;1968&#39;],
-      dtype=object)
-</pre></div>
-</div>
-</div>
 </div>
 <p>To display the unique values of the column <strong>year</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;1943&#39;, &#39;1946&#39;, &#39;1947&#39;, &#39;1948&#39;, &#39;1949&#39;, &#39;1950&#39;, &#39;1951&#39;, &#39;1952&#39;,
-       &#39;1953&#39;, &#39;1954&#39;, &#39;1955&#39;, &#39;1956&#39;, &#39;1957&#39;, &#39;1958&#39;, &#39;1959&#39;, &#39;1960&#39;,
-       &#39;1961&#39;, &#39;1962&#39;, &#39;1963&#39;, &#39;1964&#39;, &#39;1965&#39;, &#39;1966&#39;, &#39;1967&#39;, &#39;1968&#39;],
-      dtype=object)
 </pre></div>
 </div>
 </div>
@@ -1318,35 +836,6 @@ Name: languageLabel, Length: 100, dtype: object
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;ENIAC coding system&#39;, &#39;ENIAC Short Code&#39;,
-       &#39;Von Neumann and Goldstine graphing system&#39;, &#39;ARC Assembly&#39;,
-       &#39;Plankalkül&#39;, &#39;CPC Coding scheme&#39;, &#39;Curry notation system&#39;,
-       &#39;Short Code&#39;, &#39;assembly language&#39;, &#39;Birkbeck Assembler&#39;, &#39;G-code&#39;,
-       &#39;Superplan&#39;, &#39;ALGAE&#39;, &#39;Intermediate Programming Language&#39;,
-       &#39;Regional Assembly Language&#39;, &#39;Boehm unnamed coding system&#39;,
-       &#39;Klammerausdrücke&#39;, &#39;OMNIBAC Symbolic Assembler&#39;, &#39;Stanislaus&#39;,
-       &#39;Whirlwind assembler&#39;, &#39;Rochester assembler&#39;,
-       &#39;Sort Merge Generator&#39;, &#39;Editing Generator&#39;, &#39;COMPOOL&#39;, &#39;autocode&#39;,
-       &#39;A-0 System&#39;, &#39;READ/PRINT&#39;, &#39;Speedcoding&#39;, &#39;Fortran&#39;,
-       &#39;MATRIX MATH&#39;, &#39;ARITH-MATIC&#39;, &#39;Laning and Zierler system&#39;,
-       &#39;MATH-MATIC&#39;, &#39;FLOW-MATIC&#39;, &#39;BACAIC&#39;, &#39;Freiburger Code&#39;,
-       &#39;Sequentielle Formelübersetzung&#39;, &#39;Internal Translator&#39;, &#39;PRINT&#39;,
-       &#39;PACT&#39;, &#39;Information Processing Language&#39;,
-       &#39;FORTRAN for the IBM 704&#39;, &#39;UNICODE&#39;, &#39;COMTRAN&#39;, &#39;GEORGE&#39;,
-       &#39;ALGOL 58&#39;, &#39;Lisp&#39;, &#39;FORTRAN III&#39;, &#39;FORTRAN II&#39;, &#39;ALGOL&#39;, &#39;JOVIAL&#39;,
-       &#39;TRAC&#39;, &#39;COBOL&#39;, &#39;MAD&#39;, &#39;FACT&#39;, &#39;ALGOL 60&#39;, &#39;ALCOR&#39;, &#39;FORTRAN IV&#39;,
-       &#39;SNOBOL&#39;, &#39;TECO&#39;, &#39;Simula&#39;, &#39;APL&#39;, &#39;CORC&#39;, &#39;CPL&#39;, &#39;JOSS&#39;, &#39;P′′&#39;,
-       &#39;Report Program Generator&#39;, &#39;BASIC&#39;, &#39;COWSEL&#39;, &#39;PL/I&#39;, &#39;MARK IV&#39;,
-       &#39;MIMIC&#39;, &#39;Speakeasy&#39;, &#39;IBM RPG II&#39;, &#39;Atlas Autocode&#39;, &#39;TELCOMP&#39;,
-       &#39;Euler&#39;, &#39;ISWIM&#39;, &#39;ALGOL W&#39;,
-       &#39;Massachusetts General Hospital Utility Multi-Programming System&#39;,
-       &#39;BCPL&#39;, &#39;Coral 66&#39;, &#39;FORTRAN 66&#39;, &#39;Hop&#39;,
-       &#39;Space Programming Language&#39;, &#39;Interlisp&#39;, &#39;XPL&#39;, &#39;PILOT&#39;],
-      dtype=object)
-</pre></div>
-</div>
-</div>
 </div>
 <p>To sort the values by one or more columns:</p>
 <div class="cell docutils container">
@@ -1355,89 +844,6 @@ Name: languageLabel, Length: 100, dtype: object
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>languageLabel</th>
-      <th>year</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>ENIAC coding system</td>
-      <td>1943</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>ENIAC Short Code</td>
-      <td>1946</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Von Neumann and Goldstine graphing system</td>
-      <td>1946</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>ARC Assembly</td>
-      <td>1947</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Plankalkül</td>
-      <td>1948</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>98</th>
-      <td>XPL</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>93</th>
-      <td>Massachusetts General Hospital Utility Multi-P...</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>92</th>
-      <td>Hop</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>94</th>
-      <td>Space Programming Language</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>99</th>
-      <td>PILOT</td>
-      <td>1968</td>
-    </tr>
-  </tbody>
-</table>
-<p>100 rows × 2 columns</p>
-</div></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">.sort_values([&quot;year&quot;])</span></code> sorts the DataFrame by the values in the column named “year”. You can specify one or more columns to sort by. By default, sorting is done in ascending order.</p>
 <div class="cell docutils container">
@@ -1446,89 +852,6 @@ Name: languageLabel, Length: 100, dtype: object
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>languageLabel</th>
-      <th>year</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>ENIAC coding system</td>
-      <td>1943</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>ENIAC Short Code</td>
-      <td>1946</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Von Neumann and Goldstine graphing system</td>
-      <td>1946</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>ARC Assembly</td>
-      <td>1947</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>CPC Coding scheme</td>
-      <td>1948</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>93</th>
-      <td>Massachusetts General Hospital Utility Multi-P...</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>97</th>
-      <td>Simula</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>94</th>
-      <td>Space Programming Language</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>98</th>
-      <td>XPL</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>99</th>
-      <td>PILOT</td>
-      <td>1968</td>
-    </tr>
-  </tbody>
-</table>
-<p>100 rows × 2 columns</p>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1536,102 +859,12 @@ Name: languageLabel, Length: 100, dtype: object
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>languageLabel</th>
-      <th>year</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>26</th>
-      <td>A-0 System</td>
-      <td>1952</td>
-    </tr>
-    <tr>
-      <th>62</th>
-      <td>ALCOR</td>
-      <td>1960</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>ALGAE</td>
-      <td>1951</td>
-    </tr>
-    <tr>
-      <th>52</th>
-      <td>ALGOL</td>
-      <td>1958</td>
-    </tr>
-    <tr>
-      <th>48</th>
-      <td>ALGOL 58</td>
-      <td>1958</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>Whirlwind assembler</td>
-      <td>1951</td>
-    </tr>
-    <tr>
-      <th>98</th>
-      <td>XPL</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>assembly language</td>
-      <td>1949</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>autocode</td>
-      <td>1954</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>autocode</td>
-      <td>1952</td>
-    </tr>
-  </tbody>
-</table>
-<p>100 rows × 2 columns</p>
-</div></div></div>
 </div>
 <p>To obtain the data types of the columns:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the data types of each column in the dataframe</span>
 <span class="n">dataframe</span><span class="o">.</span><span class="n">dtypes</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>languageLabel    object
-year             object
-dtype: object
 </pre></div>
 </div>
 </div>
@@ -1664,13 +897,6 @@ dtype: object
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>languageLabel    0
-year             0
-dtype: int64
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="filtering-data">
@@ -1694,231 +920,12 @@ dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>languageLabel</th>
-      <th>year</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>63</th>
-      <td>FORTRAN IV</td>
-      <td>1961</td>
-    </tr>
-    <tr>
-      <th>64</th>
-      <td>SNOBOL</td>
-      <td>1962</td>
-    </tr>
-    <tr>
-      <th>65</th>
-      <td>TECO</td>
-      <td>1962</td>
-    </tr>
-    <tr>
-      <th>66</th>
-      <td>Simula</td>
-      <td>1962</td>
-    </tr>
-    <tr>
-      <th>67</th>
-      <td>APL</td>
-      <td>1962</td>
-    </tr>
-    <tr>
-      <th>68</th>
-      <td>CORC</td>
-      <td>1962</td>
-    </tr>
-    <tr>
-      <th>69</th>
-      <td>CPL</td>
-      <td>1963</td>
-    </tr>
-    <tr>
-      <th>70</th>
-      <td>JOSS</td>
-      <td>1963</td>
-    </tr>
-    <tr>
-      <th>71</th>
-      <td>P′′</td>
-      <td>1964</td>
-    </tr>
-    <tr>
-      <th>72</th>
-      <td>Report Program Generator</td>
-      <td>1964</td>
-    </tr>
-    <tr>
-      <th>73</th>
-      <td>TRAC</td>
-      <td>1964</td>
-    </tr>
-    <tr>
-      <th>74</th>
-      <td>BASIC</td>
-      <td>1964</td>
-    </tr>
-    <tr>
-      <th>75</th>
-      <td>COWSEL</td>
-      <td>1964</td>
-    </tr>
-    <tr>
-      <th>76</th>
-      <td>PL/I</td>
-      <td>1964</td>
-    </tr>
-    <tr>
-      <th>77</th>
-      <td>MARK IV</td>
-      <td>1964</td>
-    </tr>
-    <tr>
-      <th>78</th>
-      <td>MIMIC</td>
-      <td>1964</td>
-    </tr>
-    <tr>
-      <th>79</th>
-      <td>Speakeasy</td>
-      <td>1964</td>
-    </tr>
-    <tr>
-      <th>80</th>
-      <td>IBM RPG II</td>
-      <td>1965</td>
-    </tr>
-    <tr>
-      <th>81</th>
-      <td>Atlas Autocode</td>
-      <td>1965</td>
-    </tr>
-    <tr>
-      <th>82</th>
-      <td>TELCOMP</td>
-      <td>1965</td>
-    </tr>
-    <tr>
-      <th>83</th>
-      <td>Euler</td>
-      <td>1966</td>
-    </tr>
-    <tr>
-      <th>84</th>
-      <td>ISWIM</td>
-      <td>1966</td>
-    </tr>
-    <tr>
-      <th>85</th>
-      <td>ALGOL W</td>
-      <td>1966</td>
-    </tr>
-    <tr>
-      <th>86</th>
-      <td>JOSS</td>
-      <td>1966</td>
-    </tr>
-    <tr>
-      <th>87</th>
-      <td>Massachusetts General Hospital Utility Multi-P...</td>
-      <td>1966</td>
-    </tr>
-    <tr>
-      <th>88</th>
-      <td>BCPL</td>
-      <td>1966</td>
-    </tr>
-    <tr>
-      <th>89</th>
-      <td>Coral 66</td>
-      <td>1966</td>
-    </tr>
-    <tr>
-      <th>90</th>
-      <td>FORTRAN 66</td>
-      <td>1966</td>
-    </tr>
-    <tr>
-      <th>91</th>
-      <td>APL</td>
-      <td>1966</td>
-    </tr>
-    <tr>
-      <th>92</th>
-      <td>Hop</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>93</th>
-      <td>Massachusetts General Hospital Utility Multi-P...</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>94</th>
-      <td>Space Programming Language</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>95</th>
-      <td>BCPL</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>96</th>
-      <td>Interlisp</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>97</th>
-      <td>Simula</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>98</th>
-      <td>XPL</td>
-      <td>1967</td>
-    </tr>
-    <tr>
-      <th>99</th>
-      <td>PILOT</td>
-      <td>1968</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows where &quot;languageLabel&quot; is &quot;BCPL&quot;</span>
 <span class="n">filtered_language</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;languageLabel&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;BCPL&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">filtered_language</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   languageLabel  year
-88          BCPL  1966
-95          BCPL  1967
 </pre></div>
 </div>
 </div>
@@ -1938,59 +945,12 @@ dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>languageLabel
-COBOL          3
-autocode       2
-JOSS           2
-Lisp           2
-TRAC           2
-              ..
-ARITH-MATIC    1
-MATRIX MATH    1
-Speedcoding    1
-READ/PRINT     1
-PILOT          1
-Name: count, Length: 88, dtype: int64
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count occurrences of each year</span>
 <span class="n">language_counts</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">language_counts</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year
-1951    11
-1964     9
-1966     9
-1955     7
-1967     7
-1954     6
-1959     6
-1958     5
-1962     5
-1952     4
-1960     4
-1957     4
-1950     3
-1948     3
-1965     3
-1949     2
-1953     2
-1956     2
-1946     2
-1963     2
-1943     1
-1961     1
-1947     1
-1968     1
-Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
