@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Practical 1 &#8212; Traitement de données massives</title>
+    <title>Programming Session 1 &#8212; Traitement de données massives</title>
   
   
   
@@ -192,7 +192,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../README.html">TDM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../practical0/practical0.html">Practical 0</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Practical 1</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Programming Session 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../practical2/practical2.html">Practical 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../practical3/practical3.html">Practical 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../practical4/practical4.html">Practical 4</a></li>
@@ -383,7 +383,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Practical 1</h1>
+    <h1>Programming Session 1</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -398,12 +398,28 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#screenshots">Screenshots</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1 ★</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2 ★</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-notes">Important Notes:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-column-wise-data-access">Explore Column-Wise Data Access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-data-by-year">Filter Data by Year</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handle-missing-or-incorrect-data">Handle Missing or Incorrect Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-data-to-pandas-dataframe">Convert Data to Pandas DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3 ★★</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-values">Handling Missing Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-data">Filtering Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-and-aggregation">Grouping and Aggregation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-data">Exporting Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4 ★★</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-data-for-a-specific-time-period">Filter Data for a Specific Time Period</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5 ★★★</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6 ★★★</a></li>
 </ul>
             </nav>
         </div>
@@ -415,8 +431,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="practical-1">
-<h1>Practical 1<a class="headerlink" href="#practical-1" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="programming-session-1">
+<h1>Programming Session 1<a class="headerlink" href="#programming-session-1" title="Link to this heading">#</a></h1>
 <section id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -439,11 +455,70 @@
 </section>
 </section>
 <section id="exercise-1">
-<h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h2>
+<h2>Exercise 1 ★<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h2>
+<p>We first install the necessary <a class="reference external" href="http://packages.In">packages.In</a> Jupyter notebooks, you can use the <code class="docutils literal notranslate"><span class="pre">!</span></code> command to run shell commands directly from a notebook cell. To install Python packages such as NumPy, pandas, you can use the following command:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip3<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>pandas<span class="w"> </span>matplotlib<span class="w"> </span>sparqlwrapper
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy in /home/john/contributions/venv/lib/python3.10/site-packages (1.24.3)
+Requirement already satisfied: pandas in /home/john/contributions/venv/lib/python3.10/site-packages (2.0.1)
+Requirement already satisfied: matplotlib in /home/john/contributions/venv/lib/python3.10/site-packages (3.7.1)
+Requirement already satisfied: sparqlwrapper in /home/john/contributions/venv/lib/python3.10/site-packages (2.0.0)
+Requirement already satisfied: pytz&gt;=2020.1 in /home/john/contributions/venv/lib/python3.10/site-packages (from pandas) (2023.3)
+Requirement already satisfied: tzdata&gt;=2022.1 in /home/john/contributions/venv/lib/python3.10/site-packages (from pandas) (2023.3)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/john/contributions/venv/lib/python3.10/site-packages (from pandas) (2.8.2)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /home/john/contributions/venv/lib/python3.10/site-packages (from matplotlib) (3.0.9)
+Requirement already satisfied: packaging&gt;=20.0 in /home/john/contributions/venv/lib/python3.10/site-packages (from matplotlib) (23.1)
+Requirement already satisfied: pillow&gt;=6.2.0 in /home/john/contributions/venv/lib/python3.10/site-packages (from matplotlib) (9.5.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /home/john/contributions/venv/lib/python3.10/site-packages (from matplotlib) (1.0.7)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /home/john/contributions/venv/lib/python3.10/site-packages (from matplotlib) (1.4.4)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /home/john/contributions/venv/lib/python3.10/site-packages (from matplotlib) (4.39.4)
+Requirement already satisfied: cycler&gt;=0.10 in /home/john/contributions/venv/lib/python3.10/site-packages (from matplotlib) (0.11.0)
+Requirement already satisfied: rdflib&gt;=6.1.1 in /home/john/contributions/venv/lib/python3.10/site-packages (from sparqlwrapper) (7.0.0)
+Requirement already satisfied: six&gt;=1.5 in /home/john/contributions/venv/lib/python3.10/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
+Requirement already satisfied: isodate&lt;0.7.0,&gt;=0.6.0 in /home/john/contributions/venv/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (0.6.1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>To import the NumPy, pandas libraries in a Jupyter notebook, you use the following Python import statements:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plot</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">SPARQLWrapper</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sw</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">__version__</span> </code>attribute is a common way to access the version information of a Python package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">plot</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sw</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.24.3
+2.0.1
+3.7.1
+2.0.0
+</pre></div>
+</div>
+</div>
+</div>
 <p>Practise the exercises given in <a class="reference internal" href="../practical0/practical0.html"><span class="std std-doc">practicals 0</span></a>.</p>
 </section>
 <section id="exercise-2">
-<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h2>
+<h2>Exercise 2 ★<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h2>
 <p>Most of the time, we work with CSV (comma-separated values) files for
 data analysis. A CSV file consits of one or more lines and each line has
 one or more values separated by commas. One can consider every line as a
@@ -470,7 +545,69 @@ datatypes (U100, i4), where U100 corresponds to 100-character unicode string and
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;ENIAC coding system&#39;, 1943) (&#39;ENIAC Short Code&#39;, 1946)
+ (&#39;Von Neumann and Goldstine graphing system&#39;, 1946)
+ (&#39;ARC Assembly&#39;, 1947) (&#39;Plankalkül&#39;, 1948) (&#39;CPC Coding scheme&#39;, 1948)
+ (&#39;Curry notation system&#39;, 1948) (&#39;Short Code&#39;, 1949)
+ (&#39;assembly language&#39;, 1949) (&#39;Short Code&#39;, 1950) (&#39;G-code&#39;, 1950)
+ (&#39;Birkbeck Assembler&#39;, 1950) (&#39;Superplan&#39;, 1951) (&#39;ALGAE&#39;, 1951)
+ (&#39;Intermediate Programming Language&#39;, 1951)
+ (&#39;Regional Assembly Language&#39;, 1951)
+ (&#39;Boehm unnamed coding system&#39;, 1951) (&#39;Klammerausdrücke&#39;, 1951)
+ (&#39;OMNIBAC Symbolic Assembler&#39;, 1951) (&#39;Stanislaus&#39;, 1951)
+ (&#39;Whirlwind assembler&#39;, 1951) (&#39;Rochester assembler&#39;, 1951)
+ (&#39;Sort Merge Generator&#39;, 1951) (&#39;autocode&#39;, 1952) (&#39;A-0 System&#39;, 1952)
+ (&#39;Editing Generator&#39;, 1952) (&#39;COMPOOL&#39;, 1952) (&#39;Speedcoding&#39;, 1953)
+ (&#39;READ/PRINT&#39;, 1953) (&#39;Fortran&#39;, 1954) (&#39;ARITH-MATIC&#39;, 1954)
+ (&#39;autocode&#39;, 1954) (&#39;Laning and Zierler system&#39;, 1954)
+ (&#39;MATH-MATIC&#39;, 1954) (&#39;MATRIX MATH&#39;, 1954) (&#39;FLOW-MATIC&#39;, 1955)
+ (&#39;PACT&#39;, 1955) (&#39;BACAIC&#39;, 1955) (&#39;Freiburger Code&#39;, 1955)
+ (&#39;Sequentielle Formelübersetzung&#39;, 1955) (&#39;Internal Translator&#39;, 1955)
+ (&#39;PRINT&#39;, 1955) (&#39;Information Processing Language&#39;, 1956)
+ (&#39;FORTRAN for the IBM 704&#39;, 1956) (&#39;Fortran&#39;, 1957) (&#39;COMTRAN&#39;, 1957)
+ (&#39;GEORGE&#39;, 1957) (&#39;UNICODE&#39;, 1957) (&#39;ALGOL 58&#39;, 1958) (&#39;Lisp&#39;, 1958)
+ (&#39;ALGOL&#39;, 1958) (&#39;FORTRAN III&#39;, 1958) (&#39;FORTRAN II&#39;, 1958)
+ (&#39;JOVIAL&#39;, 1959) (&#39;TRAC&#39;, 1959) (&#39;COBOL&#39;, 1959) (&#39;MAD&#39;, 1959)
+ (&#39;Lisp&#39;, 1959) (&#39;FACT&#39;, 1959) (&#39;COBOL&#39;, 1960) (&#39;ALCOR&#39;, 1960)
+ (&#39;ALGOL 60&#39;, 1960) (&#39;FORTRAN IV&#39;, 1961) (&#39;TECO&#39;, 1962) (&#39;SNOBOL&#39;, 1962)
+ (&#39;APL&#39;, 1962) (&#39;Simula&#39;, 1962) (&#39;CORC&#39;, 1962) (&#39;CPL&#39;, 1963)
+ (&#39;JOSS&#39;, 1963) (&#39;P′′&#39;, 1964) (&#39;Report Program Generator&#39;, 1964)
+ (&#39;TRAC&#39;, 1964) (&#39;BASIC&#39;, 1964) (&#39;COWSEL&#39;, 1964) (&#39;MARK IV&#39;, 1964)
+ (&#39;MIMIC&#39;, 1964) (&#39;PL/I&#39;, 1964) (&#39;Speakeasy&#39;, 1964) (&#39;IBM RPG II&#39;, 1965)
+ (&#39;Atlas Autocode&#39;, 1965) (&#39;TELCOMP&#39;, 1965) (&#39;Euler&#39;, 1966)
+ (&#39;ISWIM&#39;, 1966) (&#39;ALGOL W&#39;, 1966)
+ (&#39;Massachusetts General Hospital Utility Multi-Programming System&#39;, 1966)
+ (&#39;JOSS&#39;, 1966) (&#39;Coral 66&#39;, 1966) (&#39;BCPL&#39;, 1966) (&#39;APL&#39;, 1966)
+ (&#39;FORTRAN 66&#39;, 1966)
+ (&#39;Massachusetts General Hospital Utility Multi-Programming System&#39;, 1967)
+ (&#39;Hop&#39;, 1967) (&#39;XPL&#39;, 1967) (&#39;Interlisp&#39;, 1967) (&#39;BCPL&#39;, 1967)
+ (&#39;Simula&#39;, 1967) (&#39;Space Programming Language&#39;, 1967) (&#39;PILOT&#39;, 1968)
+ (&#39;ALGOL 68&#39;, 1968)]
+</pre></div>
 </div>
+</div>
+</div>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code></strong>: This function loads data from a text file, with each row in the text file being converted to a NumPy array element.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">&quot;../data/pl.csv&quot;</span></code></strong>: The path to the CSV file. You need to change this to the actual path where your CSV file is located.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">dtype={&quot;names&quot;:</span> <span class="pre">(&quot;name&quot;,</span> <span class="pre">&quot;year&quot;),</span> <span class="pre">&quot;formats&quot;:</span> <span class="pre">(&quot;U100&quot;,</span> <span class="pre">&quot;i4&quot;)}</span></code></strong>: Specifies the data type for the resulting NumPy array. Here, <code class="docutils literal notranslate"><span class="pre">dtype</span></code> is defined as a dictionary with:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">names</span></code>: A tuple specifying the names of the columns.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">formats</span></code>: A tuple specifying the data type of each column. <code class="docutils literal notranslate"><span class="pre">&quot;U100&quot;</span></code> stands for a Unicode string of maximum length 100, and <code class="docutils literal notranslate"><span class="pre">&quot;i4&quot;</span></code> stands for a 4-byte integer.</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">skiprows=1</span></code></strong>: This parameter skips the first row of the CSV file, which is assumed to be the header.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">delimiter=&quot;,&quot;</span></code></strong>: Specifies the delimiter that separates the values in the CSV file. Here, it is a comma.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">encoding=&quot;UTF-8&quot;</span></code></strong>: Specifies the encoding of the file. UTF-8 is a common encoding for text files.</p></li>
+</ul>
+<section id="important-notes">
+<h3>Important Notes:<a class="headerlink" href="#important-notes" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>File Path</strong>: Ensure the file path (<code class="docutils literal notranslate"><span class="pre">&quot;../data/pl.csv&quot;</span></code>) is correct relative to your Jupyter notebook or script. You might need to adjust it depending on where your CSV file is located.</p></li>
+<li><p><strong>CSV File Structure</strong>: The CSV file should have a header row that matches the column names specified in the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> parameter, and the data should follow in subsequent rows.</p></li>
+<li><p><strong>Column Data Types</strong>: Ensure that the data types (<code class="docutils literal notranslate"><span class="pre">&quot;U100&quot;</span></code> for strings and <code class="docutils literal notranslate"><span class="pre">&quot;i4&quot;</span></code> for integers) match the actual data in your CSV file.</p></li>
+</ol>
 <p><img alt="" src="en/practical1/images/numpycsv.png" /></p>
 <p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.loadtxt.html">CSV support in
 numpy</a>
@@ -506,14 +643,75 @@ tsv file.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;ENIAC coding system&#39;, 1943) (&#39;ENIAC Short Code&#39;, 1946)
+ (&#39;Von Neumann and Goldstine graphing system&#39;, 1946)
+ (&#39;ARC Assembly&#39;, 1947) (&#39;Plankalkül&#39;, 1948) (&#39;CPC Coding scheme&#39;, 1948)
+ (&#39;Curry notation system&#39;, 1948) (&#39;Short Code&#39;, 1949)
+ (&#39;assembly language&#39;, 1949) (&#39;Short Code&#39;, 1950)
+ (&#39;Birkbeck Assembler&#39;, 1950) (&#39;G-code&#39;, 1950) (&#39;Superplan&#39;, 1951)
+ (&#39;ALGAE&#39;, 1951) (&#39;Intermediate Programming Language&#39;, 1951)
+ (&#39;Regional Assembly Language&#39;, 1951)
+ (&#39;Boehm unnamed coding system&#39;, 1951) (&#39;Klammerausdrücke&#39;, 1951)
+ (&#39;OMNIBAC Symbolic Assembler&#39;, 1951) (&#39;Stanislaus&#39;, 1951)
+ (&#39;Whirlwind assembler&#39;, 1951) (&#39;Rochester assembler&#39;, 1951)
+ (&#39;Sort Merge Generator&#39;, 1951) (&#39;Editing Generator&#39;, 1952)
+ (&#39;COMPOOL&#39;, 1952) (&#39;autocode&#39;, 1952) (&#39;A-0 System&#39;, 1952)
+ (&#39;READ/PRINT&#39;, 1953) (&#39;Speedcoding&#39;, 1953) (&#39;Fortran&#39;, 1954)
+ (&#39;MATRIX MATH&#39;, 1954) (&#39;autocode&#39;, 1954) (&#39;ARITH-MATIC&#39;, 1954)
+ (&#39;Laning and Zierler system&#39;, 1954) (&#39;MATH-MATIC&#39;, 1954)
+ (&#39;FLOW-MATIC&#39;, 1955) (&#39;BACAIC&#39;, 1955) (&#39;Freiburger Code&#39;, 1955)
+ (&#39;Sequentielle Formelübersetzung&#39;, 1955) (&#39;Internal Translator&#39;, 1955)
+ (&#39;PRINT&#39;, 1955) (&#39;PACT&#39;, 1955) (&#39;Information Processing Language&#39;, 1956)
+ (&#39;FORTRAN for the IBM 704&#39;, 1956) (&#39;Fortran&#39;, 1957) (&#39;UNICODE&#39;, 1957)
+ (&#39;COMTRAN&#39;, 1957) (&#39;GEORGE&#39;, 1957) (&#39;ALGOL 58&#39;, 1958) (&#39;Lisp&#39;, 1958)
+ (&#39;FORTRAN III&#39;, 1958) (&#39;FORTRAN II&#39;, 1958) (&#39;ALGOL&#39;, 1958)
+ (&#39;JOVIAL&#39;, 1959) (&#39;TRAC&#39;, 1959) (&#39;COBOL&#39;, 1959) (&#39;Lisp&#39;, 1959)
+ (&#39;MAD&#39;, 1959) (&#39;FACT&#39;, 1959) (&#39;COBOL&#39;, 1960) (&#39;COBOL&#39;, 1960)
+ (&#39;ALGOL 60&#39;, 1960) (&#39;ALCOR&#39;, 1960) (&#39;FORTRAN IV&#39;, 1961) (&#39;SNOBOL&#39;, 1962)
+ (&#39;TECO&#39;, 1962) (&#39;Simula&#39;, 1962) (&#39;APL&#39;, 1962) (&#39;CORC&#39;, 1962)
+ (&#39;CPL&#39;, 1963) (&#39;JOSS&#39;, 1963) (&#39;P′′&#39;, 1964)
+ (&#39;Report Program Generator&#39;, 1964) (&#39;TRAC&#39;, 1964) (&#39;BASIC&#39;, 1964)
+ (&#39;COWSEL&#39;, 1964) (&#39;PL/I&#39;, 1964) (&#39;MARK IV&#39;, 1964) (&#39;MIMIC&#39;, 1964)
+ (&#39;Speakeasy&#39;, 1964) (&#39;IBM RPG II&#39;, 1965) (&#39;Atlas Autocode&#39;, 1965)
+ (&#39;TELCOMP&#39;, 1965) (&#39;Euler&#39;, 1966) (&#39;ISWIM&#39;, 1966) (&#39;ALGOL W&#39;, 1966)
+ (&#39;JOSS&#39;, 1966)
+ (&#39;Massachusetts General Hospital Utility Multi-Programming System&#39;, 1966)
+ (&#39;BCPL&#39;, 1966) (&#39;Coral 66&#39;, 1966) (&#39;FORTRAN 66&#39;, 1966) (&#39;APL&#39;, 1966)
+ (&#39;Hop&#39;, 1967)
+ (&#39;Massachusetts General Hospital Utility Multi-Programming System&#39;, 1967)
+ (&#39;Space Programming Language&#39;, 1967) (&#39;BCPL&#39;, 1967) (&#39;Interlisp&#39;, 1967)
+ (&#39;Simula&#39;, 1967) (&#39;XPL&#39;, 1967) (&#39;PILOT&#39;, 1968)]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Note the changes in the above code compared to the previous one. A TSV
 file is a tab-separated file, i.e., the column values are separated by a
 tab ((\t)).</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code></strong>: This function loads data from a text file, with each row in the text file being converted to a NumPy array element.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">&quot;../data/pl.tsv&quot;</span></code></strong>: The path to the TSV file. You need to change this to the actual path where your TSV file is located.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">dtype={&quot;names&quot;:</span> <span class="pre">(&quot;name&quot;,</span> <span class="pre">&quot;year&quot;),</span> <span class="pre">&quot;formats&quot;:</span> <span class="pre">(&quot;U100&quot;,</span> <span class="pre">&quot;i4&quot;)}</span></code></strong>: Specifies the data type for the resulting NumPy array. Here, <code class="docutils literal notranslate"><span class="pre">dtype</span></code> is defined as a dictionary with:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">names</span></code>: A tuple specifying the names of the columns.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">formats</span></code>: A tuple specifying the data type of each column. <code class="docutils literal notranslate"><span class="pre">&quot;U100&quot;</span></code> stands for a Unicode string of maximum length 100, and <code class="docutils literal notranslate"><span class="pre">&quot;i4&quot;</span></code> stands for a 4-byte integer.</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">skiprows=1</span></code></strong>: This parameter skips the first row of the TSV file, which is assumed to be the header.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">delimiter=&quot;\t&quot;</span></code></strong>: Specifies the delimiter that separates the values in the TSV file. Here, it is a tab character.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">encoding=&quot;UTF-8&quot;</span></code></strong>: Specifies the encoding of the file. UTF-8 is a common encoding for text files.</p></li>
+</ul>
 <p>For counting the number of rows in your dataset, you can use <code class="docutils literal notranslate"><span class="pre">len()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the number of elements in the dataset</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
 </pre></div>
 </div>
 </div>
@@ -525,10 +723,276 @@ tab ((\t)).</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
+</pre></div>
+</div>
+</div>
 </div>
 </section>
+<section id="explore-column-wise-data-access">
+<h3>Explore Column-Wise Data Access<a class="headerlink" href="#explore-column-wise-data-access" title="Link to this heading">#</a></h3>
+<p>Extract and print only the “name” column from the dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;ENIAC coding system&#39;, &#39;ENIAC Short Code&#39;,
+       &#39;Von Neumann and Goldstine graphing system&#39;, &#39;ARC Assembly&#39;,
+       &#39;Plankalkül&#39;, &#39;CPC Coding scheme&#39;, &#39;Curry notation system&#39;,
+       &#39;Short Code&#39;, &#39;assembly language&#39;, &#39;Short Code&#39;,
+       &#39;Birkbeck Assembler&#39;, &#39;G-code&#39;, &#39;Superplan&#39;, &#39;ALGAE&#39;,
+       &#39;Intermediate Programming Language&#39;, &#39;Regional Assembly Language&#39;,
+       &#39;Boehm unnamed coding system&#39;, &#39;Klammerausdrücke&#39;,
+       &#39;OMNIBAC Symbolic Assembler&#39;, &#39;Stanislaus&#39;, &#39;Whirlwind assembler&#39;,
+       &#39;Rochester assembler&#39;, &#39;Sort Merge Generator&#39;, &#39;Editing Generator&#39;,
+       &#39;COMPOOL&#39;, &#39;autocode&#39;, &#39;A-0 System&#39;, &#39;READ/PRINT&#39;, &#39;Speedcoding&#39;,
+       &#39;Fortran&#39;, &#39;MATRIX MATH&#39;, &#39;autocode&#39;, &#39;ARITH-MATIC&#39;,
+       &#39;Laning and Zierler system&#39;, &#39;MATH-MATIC&#39;, &#39;FLOW-MATIC&#39;, &#39;BACAIC&#39;,
+       &#39;Freiburger Code&#39;, &#39;Sequentielle Formelübersetzung&#39;,
+       &#39;Internal Translator&#39;, &#39;PRINT&#39;, &#39;PACT&#39;,
+       &#39;Information Processing Language&#39;, &#39;FORTRAN for the IBM 704&#39;,
+       &#39;Fortran&#39;, &#39;UNICODE&#39;, &#39;COMTRAN&#39;, &#39;GEORGE&#39;, &#39;ALGOL 58&#39;, &#39;Lisp&#39;,
+       &#39;FORTRAN III&#39;, &#39;FORTRAN II&#39;, &#39;ALGOL&#39;, &#39;JOVIAL&#39;, &#39;TRAC&#39;, &#39;COBOL&#39;,
+       &#39;Lisp&#39;, &#39;MAD&#39;, &#39;FACT&#39;, &#39;COBOL&#39;, &#39;COBOL&#39;, &#39;ALGOL 60&#39;, &#39;ALCOR&#39;,
+       &#39;FORTRAN IV&#39;, &#39;SNOBOL&#39;, &#39;TECO&#39;, &#39;Simula&#39;, &#39;APL&#39;, &#39;CORC&#39;, &#39;CPL&#39;,
+       &#39;JOSS&#39;, &#39;P′′&#39;, &#39;Report Program Generator&#39;, &#39;TRAC&#39;, &#39;BASIC&#39;,
+       &#39;COWSEL&#39;, &#39;PL/I&#39;, &#39;MARK IV&#39;, &#39;MIMIC&#39;, &#39;Speakeasy&#39;, &#39;IBM RPG II&#39;,
+       &#39;Atlas Autocode&#39;, &#39;TELCOMP&#39;, &#39;Euler&#39;, &#39;ISWIM&#39;, &#39;ALGOL W&#39;, &#39;JOSS&#39;,
+       &#39;Massachusetts General Hospital Utility Multi-Programming System&#39;,
+       &#39;BCPL&#39;, &#39;Coral 66&#39;, &#39;FORTRAN 66&#39;, &#39;APL&#39;, &#39;Hop&#39;,
+       &#39;Massachusetts General Hospital Utility Multi-Programming System&#39;,
+       &#39;Space Programming Language&#39;, &#39;BCPL&#39;, &#39;Interlisp&#39;, &#39;Simula&#39;, &#39;XPL&#39;,
+       &#39;PILOT&#39;], dtype=&#39;&lt;U100&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Extract and print only the “year” column from the dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1943, 1946, 1946, 1947, 1948, 1948, 1948, 1949, 1949, 1950, 1950,
+       1950, 1951, 1951, 1951, 1951, 1951, 1951, 1951, 1951, 1951, 1951,
+       1951, 1952, 1952, 1952, 1952, 1953, 1953, 1954, 1954, 1954, 1954,
+       1954, 1954, 1955, 1955, 1955, 1955, 1955, 1955, 1955, 1956, 1956,
+       1957, 1957, 1957, 1957, 1958, 1958, 1958, 1958, 1958, 1959, 1959,
+       1959, 1959, 1959, 1959, 1960, 1960, 1960, 1960, 1961, 1962, 1962,
+       1962, 1962, 1962, 1963, 1963, 1964, 1964, 1964, 1964, 1964, 1964,
+       1964, 1964, 1964, 1965, 1965, 1965, 1966, 1966, 1966, 1966, 1966,
+       1966, 1966, 1966, 1966, 1967, 1967, 1967, 1967, 1967, 1967, 1967,
+       1968], dtype=int32)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="filter-data-by-year">
+<h3>Filter Data by Year<a class="headerlink" href="#filter-data-by-year" title="Link to this heading">#</a></h3>
+<p>Find and print all rows where the year is greater than 1960.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1960</span><span class="p">]</span>
+<span class="n">filtered_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([(&#39;FORTRAN IV&#39;, 1961), (&#39;SNOBOL&#39;, 1962), (&#39;TECO&#39;, 1962),
+       (&#39;Simula&#39;, 1962), (&#39;APL&#39;, 1962), (&#39;CORC&#39;, 1962), (&#39;CPL&#39;, 1963),
+       (&#39;JOSS&#39;, 1963), (&#39;P′′&#39;, 1964), (&#39;Report Program Generator&#39;, 1964),
+       (&#39;TRAC&#39;, 1964), (&#39;BASIC&#39;, 1964), (&#39;COWSEL&#39;, 1964), (&#39;PL/I&#39;, 1964),
+       (&#39;MARK IV&#39;, 1964), (&#39;MIMIC&#39;, 1964), (&#39;Speakeasy&#39;, 1964),
+       (&#39;IBM RPG II&#39;, 1965), (&#39;Atlas Autocode&#39;, 1965), (&#39;TELCOMP&#39;, 1965),
+       (&#39;Euler&#39;, 1966), (&#39;ISWIM&#39;, 1966), (&#39;ALGOL W&#39;, 1966),
+       (&#39;JOSS&#39;, 1966),
+       (&#39;Massachusetts General Hospital Utility Multi-Programming System&#39;, 1966),
+       (&#39;BCPL&#39;, 1966), (&#39;Coral 66&#39;, 1966), (&#39;FORTRAN 66&#39;, 1966),
+       (&#39;APL&#39;, 1966), (&#39;Hop&#39;, 1967),
+       (&#39;Massachusetts General Hospital Utility Multi-Programming System&#39;, 1967),
+       (&#39;Space Programming Language&#39;, 1967), (&#39;BCPL&#39;, 1967),
+       (&#39;Interlisp&#39;, 1967), (&#39;Simula&#39;, 1967), (&#39;XPL&#39;, 1967),
+       (&#39;PILOT&#39;, 1968)], dtype=[(&#39;name&#39;, &#39;&lt;U100&#39;), (&#39;year&#39;, &#39;&lt;i4&#39;)])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="handle-missing-or-incorrect-data">
+<h3>Handle Missing or Incorrect Data<a class="headerlink" href="#handle-missing-or-incorrect-data" title="Link to this heading">#</a></h3>
+<p>Check the following code which contains some missing values</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Save a modified CSV file with a missing value (manually or via script)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s2">&quot;pl_missing.csv&quot;</span><span class="p">,</span> <span class="p">[(</span><span class="s2">&quot;Simula&quot;</span><span class="p">,</span> <span class="mi">1962</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Swift&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)],</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Attempt to load with np.loadtxt (will cause an error)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dataset_with_missing_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;pl_missing.csv&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">),</span> <span class="s2">&quot;formats&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;U100&quot;</span><span class="p">,</span> <span class="s2">&quot;i4&quot;</span><span class="p">)},</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error: could not convert string &#39;&#39; to int32 at row 1, column 2.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load using np.genfromtxt (handles missing values)</span>
+<span class="n">dataset_with_missing_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s2">&quot;pl_missing.csv&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">),</span> <span class="s2">&quot;formats&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;U100&quot;</span><span class="p">,</span> <span class="s2">&quot;i4&quot;</span><span class="p">)},</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span>
+<span class="n">dataset_with_missing_values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([(&#39;Simula&#39;, 1962), (&#39;Swift&#39;,   -1)],
+      dtype=[(&#39;name&#39;, &#39;&lt;U100&#39;), (&#39;year&#39;, &#39;&lt;i4&#39;)])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using filling_values for a Specific Column</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the dataset with default values for missing entries</span>
+<span class="n">dataset_with_missing_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span>
+    <span class="s2">&quot;pl_missing.csv&quot;</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;U100&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;i4&quot;</span><span class="p">)],</span>
+    <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span>
+    <span class="n">names</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># First row contains column names</span>
+    <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">,</span>
+    <span class="n">missing_values</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Treat empty values as missing</span>
+    <span class="n">filling_values</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>  <span class="c1"># Replace missing years with 0</span>
+<span class="p">)</span>
+
+<span class="n">dataset_with_missing_values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array((&#39;Swift&#39;, -1), dtype=[(&#39;Simula&#39;, &#39;&lt;U100&#39;), (&#39;1962&#39;, &#39;&lt;i4&#39;)])
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code> will raise an error due to missing values. <code class="docutils literal notranslate"><span class="pre">np.genfromtxt()</span></code> will load the dataset, replacing missing values with nan or a default value.</p>
+</section>
+<section id="convert-data-to-pandas-dataframe">
+<h3>Convert Data to Pandas DataFrame<a class="headerlink" href="#convert-data-to-pandas-dataframe" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Convert NumPy structured array to Pandas DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+
+<span class="c1"># Print datafram</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ENIAC coding system</td>
+      <td>1943</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ENIAC Short Code</td>
+      <td>1946</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Von Neumann and Goldstine graphing system</td>
+      <td>1946</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ARC Assembly</td>
+      <td>1947</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Plankalkül</td>
+      <td>1948</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>BCPL</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>Interlisp</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Simula</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>XPL</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>PILOT</td>
+      <td>1968</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 2 columns</p>
+</div></div></div>
+</div>
+<p><strong>Question</strong>: What is the difference between np.loadtxt() and np.genfromtxt() when reading CSV files? When should you prefer one over the other?</p>
+</section>
+</section>
 <section id="exercise-3">
-<h2>Exercise 3<a class="headerlink" href="#exercise-3" title="Link to this heading">#</a></h2>
+<h2>Exercise 3 ★★<a class="headerlink" href="#exercise-3" title="Link to this heading">#</a></h2>
 <p>Most of the external data sources may provide their data in JSON format.
 Our next exercise is to parse JSON files. Copy the file
 <a class="reference download internal" download="" href="../../_downloads/02d8e3487eae86363474b4252d118db1/pl.json"><span class="xref download myst">pl.json</span></a> to
@@ -556,13 +1020,53 @@ Take a look at <a class="reference external" href="https://pandas.pydata.org/pan
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
+<span class="c1"># Load JSON data from a file</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../data/pl.json&quot;</span><span class="p">))</span>
+
+<span class="c1"># Convert JSON data to a pandas DataFrame</span>
 <span class="n">dataframe</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                languageLabel  year
+0                         ENIAC coding system  1943
+1                            ENIAC Short Code  1946
+2   Von Neumann and Goldstine graphing system  1946
+3                                ARC Assembly  1947
+4                                  Plankalkül  1948
+..                                        ...   ...
+95                                       BCPL  1967
+96                                  Interlisp  1967
+97                                     Simula  1967
+98                                        XPL  1967
+99                                      PILOT  1968
+
+[100 rows x 2 columns]
+</pre></div>
 </div>
+</div>
+</div>
+<p>This code is using Python’s pandas library to work with JSON data.</p>
+<p>*. <strong>Imports</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">pandas</span> <span class="pre">import</span> <span class="pre">json_normalize</span></code>: Imports the <code class="docutils literal notranslate"><span class="pre">json_normalize</span></code> function from the pandas library. This function is used to flatten JSON data into a DataFrame.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pandas</span> <span class="pre">as</span> <span class="pre">pd</span></code>: Imports the pandas library with the alias <code class="docutils literal notranslate"><span class="pre">pd</span></code>, which is a common convention.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">json</span></code>: Imports Python’s built-in <code class="docutils literal notranslate"><span class="pre">json</span></code> module for handling JSON data.</p></li>
+</ul>
+<p>*. <strong>Loading JSON Data</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">=</span> <span class="pre">json.load(open(&quot;../data/pl.json&quot;))</span></code>: Opens a JSON file located at <code class="docutils literal notranslate"><span class="pre">&quot;../data/pl.json&quot;</span></code> and loads its contents into the <code class="docutils literal notranslate"><span class="pre">data</span></code> variable. The <code class="docutils literal notranslate"><span class="pre">json.load()</span></code> function reads the JSON file and parses it into a Python dictionary.</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>Normalizing JSON into a DataFrame</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">dataframe</span> <span class="pre">=</span> <span class="pre">json_normalize(data)</span></code>: Uses the <code class="docutils literal notranslate"><span class="pre">json_normalize()</span></code> function from pandas to convert the nested JSON data (<code class="docutils literal notranslate"><span class="pre">data</span></code>) into a flat table-like structure called a DataFrame. This step is particularly useful for analyzing structured JSON data where nested objects or arrays need to be represented in tabular form.</p></li>
+</ul>
+</li>
+</ul>
 <p>And the output without <code class="docutils literal notranslate"><span class="pre">print()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -570,11 +1074,111 @@ Take a look at <a class="reference external" href="https://pandas.pydata.org/pan
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>languageLabel</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ENIAC coding system</td>
+      <td>1943</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ENIAC Short Code</td>
+      <td>1946</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Von Neumann and Goldstine graphing system</td>
+      <td>1946</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ARC Assembly</td>
+      <td>1947</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Plankalkül</td>
+      <td>1948</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>BCPL</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>Interlisp</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Simula</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>XPL</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>PILOT</td>
+      <td>1968</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 2 columns</p>
+</div></div></div>
 </div>
 <p>To display the values of the column <strong>year</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the &quot;year&quot; column from the dataframe</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     1943
+1     1946
+2     1946
+3     1947
+4     1948
+      ... 
+95    1967
+96    1967
+97    1967
+98    1967
+99    1968
+Name: year, Length: 100, dtype: object
 </pre></div>
 </div>
 </div>
@@ -582,15 +1186,109 @@ Take a look at <a class="reference external" href="https://pandas.pydata.org/pan
 <p>To display the values of the column <strong>languageLabel</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;languageLabel&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the &quot;languageLabel&quot; column from the dataframe</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;languageLabel&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                           ENIAC coding system
+1                              ENIAC Short Code
+2     Von Neumann and Goldstine graphing system
+3                                  ARC Assembly
+4                                    Plankalkül
+                        ...                    
+95                                         BCPL
+96                                    Interlisp
+97                                       Simula
+98                                          XPL
+99                                        PILOT
+Name: languageLabel, Length: 100, dtype: object
 </pre></div>
 </div>
 </div>
 </div>
-<p>Getting some important information like count, min, max using <code class="docutils literal notranslate"><span class="pre">describe()</span></code></p>
+<p>Getting some important information like count, min, max using the method <code class="docutils literal notranslate"><span class="pre">describe()</span></code>. By default, it focuses on numerical columns (containing numbers) and calculates statistics like mean, standard deviation, quartiles (like 25th and 75th percentile), minimum and maximum values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get some descriptive summary of the dataframe</span>
+<span class="n">dataframe</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>languageLabel</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>100</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>88</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>COBOL</td>
+      <td>1951</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>3</td>
+      <td>11</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">dataframe.describe()</span></code> method in pandas generates descriptive statistics that summarize the central tendency, dispersion, and shape of a dataset’s distribution. Here’s what each part typically includes:</p>
+<ol class="arabic simple">
+<li><p><strong>Count</strong>: Number of non-null observations (rows) in each column.</p></li>
+<li><p><strong>Mean</strong>: Average value of each numerical column.</p></li>
+<li><p><strong>Std (Standard Deviation)</strong>: Measures the dispersion or spread of the values in each numerical column.</p></li>
+<li><p><strong>Min</strong>: The smallest value in each numerical column.</p></li>
+<li><p><strong>25% (Percentile)</strong>: The value below which 25% of the observations fall (1st quartile).</p></li>
+<li><p><strong>50% (Median)</strong>: The median or 50th percentile.</p></li>
+<li><p><strong>75% (Percentile)</strong>: The value below which 75% of the observations fall (3rd quartile).</p></li>
+<li><p><strong>Max</strong>: The largest value in each numerical column.</p></li>
+</ol>
+<p>When you call <code class="docutils literal notranslate"><span class="pre">describe()</span></code> on a pandas DataFrame (<code class="docutils literal notranslate"><span class="pre">dataframe</span></code> in this case), it analyzes only the numerical columns by default and provides the statistical summary for each of these columns. Non-numerical columns are ignored unless specifically included by using additional parameters.</p>
+<p>This method is useful for quickly getting an overview of your dataset’s numeric values, identifying outliers, understanding the distribution of your data, and more.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the unique years from the &quot;year&quot; column</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;1943&#39;, &#39;1946&#39;, &#39;1947&#39;, &#39;1948&#39;, &#39;1949&#39;, &#39;1950&#39;, &#39;1951&#39;, &#39;1952&#39;,
+       &#39;1953&#39;, &#39;1954&#39;, &#39;1955&#39;, &#39;1956&#39;, &#39;1957&#39;, &#39;1958&#39;, &#39;1959&#39;, &#39;1960&#39;,
+       &#39;1961&#39;, &#39;1962&#39;, &#39;1963&#39;, &#39;1964&#39;, &#39;1965&#39;, &#39;1966&#39;, &#39;1967&#39;, &#39;1968&#39;],
+      dtype=object)
 </pre></div>
 </div>
 </div>
@@ -602,11 +1300,50 @@ Take a look at <a class="reference external" href="https://pandas.pydata.org/pan
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;1943&#39;, &#39;1946&#39;, &#39;1947&#39;, &#39;1948&#39;, &#39;1949&#39;, &#39;1950&#39;, &#39;1951&#39;, &#39;1952&#39;,
+       &#39;1953&#39;, &#39;1954&#39;, &#39;1955&#39;, &#39;1956&#39;, &#39;1957&#39;, &#39;1958&#39;, &#39;1959&#39;, &#39;1960&#39;,
+       &#39;1961&#39;, &#39;1962&#39;, &#39;1963&#39;, &#39;1964&#39;, &#39;1965&#39;, &#39;1966&#39;, &#39;1967&#39;, &#39;1968&#39;],
+      dtype=object)
+</pre></div>
 </div>
+</div>
+</div>
+<p>Note that the order of unique values returned by .unique() is not guaranteed.</p>
 <p>To display the unique values of the column <strong>languageLabel</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;languageLabel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the unique languages from the &quot;languageLabel&quot; column</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;languageLabel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;ENIAC coding system&#39;, &#39;ENIAC Short Code&#39;,
+       &#39;Von Neumann and Goldstine graphing system&#39;, &#39;ARC Assembly&#39;,
+       &#39;Plankalkül&#39;, &#39;CPC Coding scheme&#39;, &#39;Curry notation system&#39;,
+       &#39;Short Code&#39;, &#39;assembly language&#39;, &#39;Birkbeck Assembler&#39;, &#39;G-code&#39;,
+       &#39;Superplan&#39;, &#39;ALGAE&#39;, &#39;Intermediate Programming Language&#39;,
+       &#39;Regional Assembly Language&#39;, &#39;Boehm unnamed coding system&#39;,
+       &#39;Klammerausdrücke&#39;, &#39;OMNIBAC Symbolic Assembler&#39;, &#39;Stanislaus&#39;,
+       &#39;Whirlwind assembler&#39;, &#39;Rochester assembler&#39;,
+       &#39;Sort Merge Generator&#39;, &#39;Editing Generator&#39;, &#39;COMPOOL&#39;, &#39;autocode&#39;,
+       &#39;A-0 System&#39;, &#39;READ/PRINT&#39;, &#39;Speedcoding&#39;, &#39;Fortran&#39;,
+       &#39;MATRIX MATH&#39;, &#39;ARITH-MATIC&#39;, &#39;Laning and Zierler system&#39;,
+       &#39;MATH-MATIC&#39;, &#39;FLOW-MATIC&#39;, &#39;BACAIC&#39;, &#39;Freiburger Code&#39;,
+       &#39;Sequentielle Formelübersetzung&#39;, &#39;Internal Translator&#39;, &#39;PRINT&#39;,
+       &#39;PACT&#39;, &#39;Information Processing Language&#39;,
+       &#39;FORTRAN for the IBM 704&#39;, &#39;UNICODE&#39;, &#39;COMTRAN&#39;, &#39;GEORGE&#39;,
+       &#39;ALGOL 58&#39;, &#39;Lisp&#39;, &#39;FORTRAN III&#39;, &#39;FORTRAN II&#39;, &#39;ALGOL&#39;, &#39;JOVIAL&#39;,
+       &#39;TRAC&#39;, &#39;COBOL&#39;, &#39;MAD&#39;, &#39;FACT&#39;, &#39;ALGOL 60&#39;, &#39;ALCOR&#39;, &#39;FORTRAN IV&#39;,
+       &#39;SNOBOL&#39;, &#39;TECO&#39;, &#39;Simula&#39;, &#39;APL&#39;, &#39;CORC&#39;, &#39;CPL&#39;, &#39;JOSS&#39;, &#39;P′′&#39;,
+       &#39;Report Program Generator&#39;, &#39;BASIC&#39;, &#39;COWSEL&#39;, &#39;PL/I&#39;, &#39;MARK IV&#39;,
+       &#39;MIMIC&#39;, &#39;Speakeasy&#39;, &#39;IBM RPG II&#39;, &#39;Atlas Autocode&#39;, &#39;TELCOMP&#39;,
+       &#39;Euler&#39;, &#39;ISWIM&#39;, &#39;ALGOL W&#39;,
+       &#39;Massachusetts General Hospital Utility Multi-Programming System&#39;,
+       &#39;BCPL&#39;, &#39;Coral 66&#39;, &#39;FORTRAN 66&#39;, &#39;Hop&#39;,
+       &#39;Space Programming Language&#39;, &#39;Interlisp&#39;, &#39;XPL&#39;, &#39;PILOT&#39;],
+      dtype=object)
 </pre></div>
 </div>
 </div>
@@ -618,13 +1355,180 @@ Take a look at <a class="reference external" href="https://pandas.pydata.org/pan
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>languageLabel</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ENIAC coding system</td>
+      <td>1943</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ENIAC Short Code</td>
+      <td>1946</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Von Neumann and Goldstine graphing system</td>
+      <td>1946</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ARC Assembly</td>
+      <td>1947</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Plankalkül</td>
+      <td>1948</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>XPL</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>Massachusetts General Hospital Utility Multi-P...</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>Hop</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>Space Programming Language</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>PILOT</td>
+      <td>1968</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 2 columns</p>
+</div></div></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">.sort_values([&quot;year&quot;])</span></code> sorts the DataFrame by the values in the column named “year”. You can specify one or more columns to sort by. By default, sorting is done in ascending order.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;languageLabel&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>languageLabel</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ENIAC coding system</td>
+      <td>1943</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ENIAC Short Code</td>
+      <td>1946</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Von Neumann and Goldstine graphing system</td>
+      <td>1946</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ARC Assembly</td>
+      <td>1947</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>CPC Coding scheme</td>
+      <td>1948</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>Massachusetts General Hospital Utility Multi-P...</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Simula</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>Space Programming Language</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>XPL</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>PILOT</td>
+      <td>1968</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 2 columns</p>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -632,18 +1536,491 @@ Take a look at <a class="reference external" href="https://pandas.pydata.org/pan
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>languageLabel</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>26</th>
+      <td>A-0 System</td>
+      <td>1952</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>ALCOR</td>
+      <td>1960</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>ALGAE</td>
+      <td>1951</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>ALGOL</td>
+      <td>1958</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>ALGOL 58</td>
+      <td>1958</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Whirlwind assembler</td>
+      <td>1951</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>XPL</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>assembly language</td>
+      <td>1949</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>autocode</td>
+      <td>1954</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>autocode</td>
+      <td>1952</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 2 columns</p>
+</div></div></div>
 </div>
 <p>To obtain the data types of the columns:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">dtypes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the data types of each column in the dataframe</span>
+<span class="n">dataframe</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>languageLabel    object
+year             object
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">dataframe.dtypes</span></code> attribute in pandas returns the data types of each column in the DataFrame <code class="docutils literal notranslate"><span class="pre">dataframe</span></code>. It provides information about how pandas has interpreted the data from the JSON (or any other source) based on its initial reading and normalization process. Here’s what you’ll typically see:</p>
+<ul class="simple">
+<li><p><strong>Numeric Types</strong>: Integers (<code class="docutils literal notranslate"><span class="pre">int64</span></code>), Floating-point numbers (<code class="docutils literal notranslate"><span class="pre">float64</span></code>).</p></li>
+<li><p><strong>Object Type</strong>: Typically strings (<code class="docutils literal notranslate"><span class="pre">object</span></code>), but can also include other Python objects.</p></li>
+<li><p><strong>DateTime Types</strong>: If applicable, pandas will recognize and label date/time data appropriately (<code class="docutils literal notranslate"><span class="pre">datetime64</span></code>).</p></li>
+<li><p><strong>Categorical Types</strong>: If pandas identifies a column with a small number of unique values, it may assign it a <code class="docutils literal notranslate"><span class="pre">category</span></code> dtype, which can optimize memory usage and speed up certain operations.</p></li>
+</ul>
+<section id="handling-missing-values">
+<h3>Handling Missing Values<a class="headerlink" href="#handling-missing-values" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Identify missing values in the dataset.</p></li>
+<li><p>Replace missing values in the “year” column with the median year.</p></li>
+<li><p>Replace missing values in categorical columns (e.g., “languageLabel”) with “Unknown”.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span>
+
+<span class="c1"># Identify missing values</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Fill missing values in &quot;year&quot; with the median value</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Fill missing values in &quot;languageLabel&quot; with &quot;Unknown&quot;</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;languageLabel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;Unknown&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>languageLabel    0
+year             0
+dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
 </section>
+<section id="filtering-data">
+<h3>Filtering Data<a class="headerlink" href="#filtering-data" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Extract all rows where the “year” is greater than 2000.</p></li>
+<li><p>Extract all rows where “languageLabel” is “English”.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;i4&quot;</span><span class="p">,</span> <span class="s2">&quot;languageLabel&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;U200&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows where &quot;year&quot; is greater than 1960</span>
+<span class="n">filtered_year</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1960</span><span class="p">]</span>
+<span class="n">filtered_year</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>languageLabel</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>63</th>
+      <td>FORTRAN IV</td>
+      <td>1961</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>SNOBOL</td>
+      <td>1962</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>TECO</td>
+      <td>1962</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>Simula</td>
+      <td>1962</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>APL</td>
+      <td>1962</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>CORC</td>
+      <td>1962</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>CPL</td>
+      <td>1963</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>JOSS</td>
+      <td>1963</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>P′′</td>
+      <td>1964</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>Report Program Generator</td>
+      <td>1964</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>TRAC</td>
+      <td>1964</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>BASIC</td>
+      <td>1964</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>COWSEL</td>
+      <td>1964</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>PL/I</td>
+      <td>1964</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>MARK IV</td>
+      <td>1964</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>MIMIC</td>
+      <td>1964</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>Speakeasy</td>
+      <td>1964</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>IBM RPG II</td>
+      <td>1965</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>Atlas Autocode</td>
+      <td>1965</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>TELCOMP</td>
+      <td>1965</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>Euler</td>
+      <td>1966</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>ISWIM</td>
+      <td>1966</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>ALGOL W</td>
+      <td>1966</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>JOSS</td>
+      <td>1966</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>Massachusetts General Hospital Utility Multi-P...</td>
+      <td>1966</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>BCPL</td>
+      <td>1966</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>Coral 66</td>
+      <td>1966</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>FORTRAN 66</td>
+      <td>1966</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>APL</td>
+      <td>1966</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>Hop</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>Massachusetts General Hospital Utility Multi-P...</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>Space Programming Language</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>BCPL</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>Interlisp</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Simula</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>XPL</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>PILOT</td>
+      <td>1968</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows where &quot;languageLabel&quot; is &quot;BCPL&quot;</span>
+<span class="n">filtered_language</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;languageLabel&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;BCPL&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filtered_language</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   languageLabel  year
+88          BCPL  1966
+95          BCPL  1967
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="grouping-and-aggregation">
+<h3>Grouping and Aggregation<a class="headerlink" href="#grouping-and-aggregation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Count how many entries exist per “languageLabel”.</p></li>
+<li><p>Count how many entries exist per “year”.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count occurrences of each language</span>
+<span class="n">language_counts</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;languageLabel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">language_counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>languageLabel
+COBOL          3
+autocode       2
+JOSS           2
+Lisp           2
+TRAC           2
+              ..
+ARITH-MATIC    1
+MATRIX MATH    1
+Speedcoding    1
+READ/PRINT     1
+PILOT          1
+Name: count, Length: 88, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count occurrences of each year</span>
+<span class="n">language_counts</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">language_counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year
+1951    11
+1964     9
+1966     9
+1955     7
+1967     7
+1954     6
+1959     6
+1958     5
+1962     5
+1952     4
+1960     4
+1957     4
+1950     3
+1948     3
+1965     3
+1949     2
+1953     2
+1956     2
+1946     2
+1963     2
+1943     1
+1961     1
+1947     1
+1968     1
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exporting-data">
+<h3>Exporting Data<a class="headerlink" href="#exporting-data" title="Link to this heading">#</a></h3>
+<p>Save the modified dataframe to a new JSON file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save to JSON file</span>
+<span class="n">dataframe</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="s2">&quot;modified_pl.json&quot;</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;records&quot;</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Save it as a CSV file as well.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save to CSV file</span>
+<span class="n">dataframe</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;modified_pl.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question:</strong>  What is the difference between <code class="docutils literal notranslate"><span class="pre">json.load()</span></code> and <code class="docutils literal notranslate"><span class="pre">json.loads()</span></code> in Python?</p>
+</section>
+</section>
 <section id="exercise-4">
-<h2>Exercise 4<a class="headerlink" href="#exercise-4" title="Link to this heading">#</a></h2>
+<h2>Exercise 4 ★★<a class="headerlink" href="#exercise-4" title="Link to this heading">#</a></h2>
 <p>In this exercise, we will take a look at how to download data from
 external data sources using special query interfaces. Take for example,
 above data was obtained from <a class="reference external" href="https://query.wikidata.org/">Wikidata query</a>:**
@@ -685,30 +2062,76 @@ this
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get some descriptive summary of the dataframe</span>
+<span class="n">dataframe</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;languageLabel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get some descriptive summary of the year column</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">dtypes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get some descriptive summary of the languageLabel column</span>
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;languageLabel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the data types of each column in the dataframe</span>
+<span class="n">dataframe</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="filter-data-for-a-specific-time-period">
+<h3>Filter Data for a Specific Time Period<a class="headerlink" href="#filter-data-for-a-specific-time-period" title="Link to this heading">#</a></h3>
+<p>You can filter the data to get programming languages that were invented in a specific range of years (e.g., between 1980 and 2000). This can be useful if you’re only interested in languages created during a certain period.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter programming languages created between 1980 and 2000</span>
+<span class="n">filtered_df</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1980</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">2000</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filtered_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Count Languages per Year: A useful operation could be to count how many languages were invented each year. This can give you a better understanding of trends in programming language creation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count the number of languages created per year</span>
+<span class="n">languages_per_year</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">languages_per_year</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Identify Languages With the Most Recent Inception: Another interesting question to ask could be which language has the most recent inception date. We can sort the dataframe by year and find the latest entries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sort the dataframe by year and get the most recent languages</span>
+<span class="n">recent_languages</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">recent_languages</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question</strong>:</p>
+<p>What is the trend in the number of programming languages being created over time? Based on the filtered data (for languages created between 1960 and 2000), identify the year with the highest number of programming languages created. Furthermore, create a new dataframe containing only the top 5 most popular programming languages (by count) during this period.</p>
+</section>
 </section>
 <section id="exercise-5">
-<h2>Exercise 5<a class="headerlink" href="#exercise-5" title="Link to this heading">#</a></h2>
+<h2>Exercise 5 ★★★<a class="headerlink" href="#exercise-5" title="Link to this heading">#</a></h2>
 <p>This exercise will use some basic data analyses. Continuing with
-the code in Exercise 1.4, le’s count the number of programming
+the code in Exercise 4, le’s count the number of programming
 languages released in a year.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -718,6 +2141,7 @@ languages released in a year.</p>
 </div>
 </div>
 </div>
+<p>The above code creates a new DataFrame <code class="docutils literal notranslate"><span class="pre">grouped</span></code> by grouping the original DataFrame <code class="docutils literal notranslate"><span class="pre">dataframe</span></code> based on the values in the column named “year”, and then counting the occurrences in each group.</p>
 <p>You can also use multiple aggregate functions using agg()</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -738,17 +2162,28 @@ to your working directory. And test the following program.</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
+<span class="c1"># Load JSON data from a file</span>
 <span class="n">jsondata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../data/plparadigm.json&quot;</span><span class="p">))</span>
+
+<span class="c1"># Create an empty list to store temporary data</span>
 <span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
 
+<span class="c1"># Loop through each item in the JSON data</span>
 <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">jsondata</span><span class="p">:</span>
+    <span class="c1"># Extract specific values from each item and append them to the list</span>
+    <span class="c1"># Assuming &quot;year&quot;, &quot;languageLabel&quot;, and &quot;paradigmLabel&quot; are keys in the JSON data</span>
     <span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;languageLabel&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;paradigmLabel&quot;</span><span class="p">]])</span>
 
+<span class="c1"># Create a pandas DataFrame from the list with named columns</span>
 <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;languageLabel&quot;</span><span class="p">,</span> <span class="s2">&quot;paradigmLabel&quot;</span><span class="p">])</span>
+
+<span class="c1"># Set data types for the columns in the DataFrame</span>
+<span class="c1"># This ensures efficient storage and avoids potential errors during operations</span>
 <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
     <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="s2">&quot;int64&quot;</span><span class="p">,</span> <span class="s2">&quot;languageLabel&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;U200&quot;</span><span class="p">,</span> <span class="s2">&quot;paradigmLabel&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;U200&quot;</span><span class="p">}</span>
 <span class="p">)</span>
 
+<span class="c1"># Group the DataFrame by &quot;year&quot; and &quot;paradigmLabel&quot; columns</span>
 <span class="n">grouped</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;paradigmLabel&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s2">&quot;count&quot;</span><span class="p">])</span>
 <span class="n">grouped</span>
 </pre></div>
@@ -778,9 +2213,10 @@ WHERE {
  FILTER(lang(?countryLabel)=&quot;en&quot;) #Label in English
 }
 ORDER by ?countryLabel ?year
-LIMIT 10000
+LIMIT 5000
 </pre></div>
 </div>
+<p><strong>Question 1</strong>:</p>
 <p>Now, compute and display the following information (using various
 <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/10min.html">operations available in pandas library</a>
 (<strong>Ref:</strong>
@@ -792,24 +2228,23 @@ ascending order of year.</p></li>
 <li><p>The country with the lowest and highest population (considering the
 latest population)</p></li>
 </ol>
+<p><strong>Question 2</strong> :</p>
 <p>Your next goal is to run the following query to get information related
-to scientific articles published after 2010 (limited to 10000 rows). Run
-the following query on <a class="reference external" href="https://query.wikidata.org">Wikidata query service</a> and download the JSON file.
+to scientific articles published after 2010 (limited to 5000 rows). Run
+the following query on <a class="reference external" href="https://query-scholarly.wikidata.org/">Wikidata query service</a> and download the JSON file.
 It gives you the following information related to the scientific
 article: title, main subject and publication year.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>SELECT ?title ?subjectLabel ?year
+<p><strong>Note</strong> : Please note the URL for querying scientific articles is <a class="reference external" href="https://query-scholarly.wikidata.org/">https://query-scholarly.wikidata.org/</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>SELECT ?title ?subject ?year
 {
-  ?article wdt:P31 wd:Q13442814; #scientific article
-           wdt:P1476 ?title; #title of the article
-           wdt:P921 ?subject; #main subject
-           wdt:P577 ?date. #publication date
-  ?subject rdfs:label ?subjectLabel.
-  BIND(YEAR(?date) as ?year).
-  #published after 2010
-  FILTER(lang(?title)=&quot;en&quot; &amp;&amp;
-     lang(?subjectLabel)=&quot;en&quot; &amp;&amp; ?year&gt;2010)
+  ?article wdt:P31 wd:Q13442814; #scientific article
+           wdt:P1476 ?title; #title of the article
+           wdt:P921 ?subject; #main subject
+           wdt:P577 ?date. #publication date
+  BIND(YEAR(?date) as ?year).
+  FILTER(lang(?title) = &quot;en&quot; &amp;&amp; ?year&gt;2010)
 }
-LIMIT 10000
+LIMIT 5000
 </pre></div>
 </div>
 <p>Now, compute and display the following information (using various
@@ -828,15 +2263,8 @@ the above query results) since 2010.</p></li>
 <p><strong>Note</strong>: If you get time-out errors, please change the LIMIT to some lower values (1000, 2000, 5000).</p>
 </section>
 <section id="exercise-6">
-<h2>Exercise 6<a class="headerlink" href="#exercise-6" title="Link to this heading">#</a></h2>
+<h2>Exercise 6 ★★★<a class="headerlink" href="#exercise-6" title="Link to this heading">#</a></h2>
 <p>In our final exercise, we will query Wikidata and obtain the URLs of the images. Then we will download these images.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>sparqlwrapper
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -845,11 +2273,11 @@ the above query results) since 2010.</p></li>
 <span class="n">endpoint_url</span> <span class="o">=</span> <span class="s2">&quot;https://query.wikidata.org/sparql&quot;</span>
 
 <span class="c1"># Get cities</span>
-<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT DISTINCT ?grandeville ?grandevilleLabel ?pays ?paysLabel ?image {</span>
-<span class="s2">  ?grandeville wdt:P31 wd:Q1549591;</span>
-<span class="s2">               wdt:P17 ?pays;</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT DISTINCT ?bigcity ?bigcityLabel ?country ?countryLabel ?image {</span>
+<span class="s2">  ?bigcity wdt:P31 wd:Q1549591;</span>
+<span class="s2">               wdt:P17 ?country;</span>
 <span class="s2">               wdt:P18 ?image.</span>
-<span class="s2"> SERVICE wikibase:label { bd:serviceParam wikibase:language &quot;fr&quot;. }</span>
+<span class="s2"> SERVICE wikibase:label { bd:serviceParam wikibase:language &quot;en&quot;. }</span>
 <span class="s2">}</span>
 <span class="s2">LIMIT 10&quot;&quot;&quot;</span>
 
@@ -871,8 +2299,8 @@ the above query results) since 2010.</p></li>
 <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;results&quot;</span><span class="p">][</span><span class="s2">&quot;bindings&quot;</span><span class="p">]:</span>
     <span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
         <span class="p">(</span>
-            <span class="n">result</span><span class="p">[</span><span class="s2">&quot;grandevilleLabel&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">],</span>
-            <span class="n">result</span><span class="p">[</span><span class="s2">&quot;paysLabel&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">],</span>
+            <span class="n">result</span><span class="p">[</span><span class="s2">&quot;bigcityLabel&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">],</span>
+            <span class="n">result</span><span class="p">[</span><span class="s2">&quot;countryLabel&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">],</span>
             <span class="n">result</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">],</span>
         <span class="p">)</span>
     <span class="p">)</span>
@@ -882,9 +2310,9 @@ the above query results) since 2010.</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ville&quot;</span><span class="p">,</span> <span class="s2">&quot;pays&quot;</span><span class="p">,</span> <span class="s2">&quot;image&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">,</span> <span class="s2">&quot;country&quot;</span><span class="p">,</span> <span class="s2">&quot;image&quot;</span><span class="p">])</span>
 <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
-    <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;ville&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;U200&quot;</span><span class="p">,</span> <span class="s2">&quot;pays&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;U200&quot;</span><span class="p">,</span> <span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;U200&quot;</span><span class="p">}</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;U200&quot;</span><span class="p">,</span> <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;U200&quot;</span><span class="p">,</span> <span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;U200&quot;</span><span class="p">}</span>
 <span class="p">)</span>
 <span class="n">dataframe</span>
 </pre></div>
@@ -919,7 +2347,35 @@ the above query results) since 2010.</p></li>
 </div>
 </div>
 </div>
+<p><strong>Question 1</strong></p>
 <p>Modify the above code and download images related to any subject of your choice (cities, historical monuments, flowers, buildings, etc.)</p>
+<p><strong>Question 2</strong></p>
+<p>Your next goal is to retrieve skyscraper (<a class="reference external" href="https://www.wikidata.org/wiki/Q11303">Q11303</a>) data (name, country, image, height) from Wikidata and download and filter images based on size.
+Use image processing code below to classify skyscrapers based on their skyline contrast (daytime vs. nighttime images).</p>
+<p>Which country has the most skyscrapers appearing in nighttime images?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>opencv-python
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">classify_day_night</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">)</span>  <span class="c1"># Convert to grayscale</span>
+    <span class="n">brightness</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>  <span class="c1"># Compute average pixel brightness</span>
+
+    <span class="k">if</span> <span class="n">brightness</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">:</span>  <span class="c1"># Dark images are nighttime</span>
+        <span class="k">return</span> <span class="s2">&quot;nighttime&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;daytime&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -993,12 +2449,28 @@ the above query results) since 2010.</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#screenshots">Screenshots</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1 ★</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2 ★</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-notes">Important Notes:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-column-wise-data-access">Explore Column-Wise Data Access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-data-by-year">Filter Data by Year</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handle-missing-or-incorrect-data">Handle Missing or Incorrect Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-data-to-pandas-dataframe">Convert Data to Pandas DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3 ★★</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-values">Handling Missing Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-data">Filtering Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-and-aggregation">Grouping and Aggregation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-data">Exporting Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4 ★★</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-data-for-a-specific-time-period">Filter Data for a Specific Time Period</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5 ★★★</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6 ★★★</a></li>
 </ul>
   </nav></div>
 
