@@ -408,6 +408,15 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goals">Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-1">Exercise 7.1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download">Download</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-of-dataframe">Creation of dataframe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-translation">Visualization of translation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-2">Exercise 7.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-3">Exercise 7.3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-4">Exercise 7.4</a></li>
 </ul>
             </nav>
         </div>
@@ -423,6 +432,485 @@ document.write(`
 <h1>Practical 7<a class="headerlink" href="#practical-7" title="Link to this heading">#</a></h1>
 <section id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Understanding the translation pattern</p></li>
+</ul>
+</section>
+<section id="exercise-7-1">
+<h2>Exercise 7.1<a class="headerlink" href="#exercise-7-1" title="Link to this heading">#</a></h2>
+<section id="download">
+<h3>Download<a class="headerlink" href="#download" title="Link to this heading">#</a></h3>
+<p>Download the data from <a class="reference external" href="https://zenodo.org/record/3271358">https://zenodo.org/record/3271358</a>.</p>
+<p>View the data contents. As you can see in the output, there are four
+columns: timestamp, property, language and type.</p>
+<p>Taking an example line from this dataset,</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>              2013-09-10T22:43:54Z,P856,en,label             
+</pre></div>
+</div>
+<p>corresponds to the action that an English label of Property P856 was
+added for the first time at 2013-09-10T22:43:54Z.</p>
+<p>Following is a description of each column.</p>
+<ol class="arabic simple">
+<li><p>timestamp: the time at which an action was made. For example,
+2013-09-10T22:43:54Z</p></li>
+<li><p>property: Wikidata property identifier. It uses the P-number, For
+example, P856</p></li>
+<li><p>language: the language in which a label/description/alias was first
+translated</p></li>
+<li><p>type: It could be one of the following values: label, description
+and alias</p></li>
+</ol>
+</section>
+<section id="creation-of-dataframe">
+<h3>Creation of dataframe<a class="headerlink" href="#creation-of-dataframe" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;multilingual_wikidata_translation_flow.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># remove duplicates</span>
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="c1"># remove rows with missing values</span>
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Get a detailed information of the given dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us now take a look at the translation of labels in different
+languages for a given property.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;property&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;P856&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;label&quot;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will check the data available for a property like P856.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ptranslation</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;property&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;P856&quot;</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ptranslation</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also add additional conditions to filter out any information.
+The code below filters out the translation of labels of property P856.
+Please copy the code below and create new cells for testing with
+different properties and see the results for translation of descriptions
+and aliases. What are your first observations? Please note them as
+comments in your notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ptranslation</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;property&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;P856&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;label&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ptranslation</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualization-of-translation">
+<h3>Visualization of translation<a class="headerlink" href="#visualization-of-translation" title="Link to this heading">#</a></h3>
+<p>Our next goal is to plot the translation of a property and see whether
+we can observe any translation pattern. Please copy the code below and
+create new cells for testing with different properties and plot the
+results. In this plot, we plot the time on the x-axis and translation
+type on the y-axis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plot</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dateutil</span><span class="w"> </span><span class="kn">import</span> <span class="n">parser</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">ptranslation</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;property&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;P856&quot;</span><span class="p">)]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">z</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ptranslation</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">])):</span>
+    <span class="c1"># parsing the date in string and converting it to datetime</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">ptranslation</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ptranslation</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ptranslation</span><span class="p">[</span><span class="s2">&quot;language&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="c1"># creating  a plot</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">rainbow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">tcolors</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;alias&quot;</span><span class="p">:</span> <span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">]}</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="p">[</span><span class="n">tcolors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cs</span><span class="p">)</span>
+
+<span class="n">plot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Translation type&quot;</span><span class="p">)</span>
+
+<span class="c1"># annotating  the points</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">txt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we plot another graph, this time, language on the y-axis and time
+on the x-axis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plot</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dateutil</span><span class="w"> </span><span class="kn">import</span> <span class="n">parser</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">ptranslation</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;property&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;P279&quot;</span><span class="p">)]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">z</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ptranslation</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">])):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># parsing the date in string and converting it to datetime</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">ptranslation</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ptranslation</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ptranslation</span><span class="p">[</span><span class="s2">&quot;language&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="c1"># creating a plot</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">rainbow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">tcolors</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;alias&quot;</span><span class="p">:</span> <span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">]}</span>
+
+<span class="n">cs</span> <span class="o">=</span> <span class="p">[</span><span class="n">tcolors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span>
+
+<span class="n">plot</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cs</span><span class="p">)</span>
+
+<span class="n">plot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Language&quot;</span><span class="p">)</span>
+
+<span class="c1"># saving the plot in a file</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;translation.png&quot;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check the plots concerning properties: P31, P279 and P856
+respectively. What are your observations on the values on the y-axis?
+Please note them as comments on the notebook. You can also see that some
+translations can be even made in a single edit. Please check a column of
+red lines in the first figure (P31).</p>
+<p>In the code given below, we select some languages and see the order of
+translation. Copy the code below and plot the graphs for different
+properties. Please note your observations as comments on the notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plot</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dateutil</span><span class="w"> </span><span class="kn">import</span> <span class="n">parser</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># list of languages under consideration</span>
+<span class="n">langlist</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fr&quot;</span><span class="p">,</span> <span class="s2">&quot;es&quot;</span><span class="p">,</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span> <span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="s2">&quot;it&quot;</span><span class="p">,</span> <span class="s2">&quot;pt&quot;</span><span class="p">,</span> <span class="s2">&quot;ja&quot;</span><span class="p">]</span>
+<span class="n">ptranslation</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;property&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;P18&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;language&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">langlist</span><span class="p">))</span>
+<span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ptranslation</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">z</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ptranslation</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">])):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># parsing the date in string and converting it to datetime</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">ptranslation</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ptranslation</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ptranslation</span><span class="p">[</span><span class="s2">&quot;language&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+
+<span class="c1"># creating  a plot</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">rainbow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">tcolors</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;alias&quot;</span><span class="p">:</span> <span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">]}</span>
+
+<span class="n">cs</span> <span class="o">=</span> <span class="p">[</span><span class="n">tcolors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cs</span><span class="p">)</span>
+
+<span class="n">plot</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;translation.png&quot;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-7-2">
+<h2>Exercise 7.2<a class="headerlink" href="#exercise-7-2" title="Link to this heading">#</a></h2>
+<p>We used plotting techniques to manually detect some patterns of
+translation. Now we use other algorithms to see whether groups of
+languages are always present together</p>
+<p>Before continuing, we need to install the library <em>mlxtend</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>mlxtend
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we prepare the language dataset. We will focus on the translation
+of property labels. We create a list of list of available translations
+of labels of all the properties from our dataset</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># prepare dataset of languages</span>
+<span class="n">languageorder</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">labeldataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;label&quot;</span><span class="p">)]</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="n">labeldataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;property&quot;</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+    <span class="n">languageorder</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">groups</span><span class="o">.</span><span class="n">get_group</span><span class="p">((</span><span class="n">k</span><span class="p">))[</span><span class="s2">&quot;language&quot;</span><span class="p">]))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">languageorder</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This will give us the following output.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="p">[[</span><span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="s1">&#39;it&#39;</span><span class="p">,</span> <span class="s1">&#39;fi&#39;</span><span class="p">,</span> <span class="s1">&#39;fr&#39;</span><span class="p">,</span> <span class="s1">&#39;de&#39;</span><span class="p">,</span> <span class="s1">&#39;zh-hans&#39;</span><span class="p">,</span> <span class="s1">&#39;ru&#39;</span><span class="p">,</span> <span class="s1">&#39;hu&#39;</span><span class="p">,</span> <span class="s1">&#39;he&#39;</span><span class="p">,</span> <span class="s1">&#39;nl&#39;</span><span class="p">,</span> <span class="s1">&#39;pt&#39;</span><span class="p">,</span> <span class="s1">&#39;pl&#39;</span><span class="p">,</span> <span class="s1">&#39;ca&#39;</span><span class="p">,</span> <span class="s1">&#39;cs&#39;</span><span class="p">,</span> <span class="s1">&#39;ilo&#39;</span><span class="p">,</span> <span class="s1">&#39;zh&#39;</span><span class="p">,</span> <span class="s1">&#39;nb&#39;</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span><span class="o">..</span>        
+</pre></div>
+</div>
+<p>Now we calculate the frequent itemsets using <em>apriori</em> algorithm. Please
+uncomment the print statement to see the intermediate dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mlxtend.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TransactionEncoder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mlxtend.frequent_patterns</span><span class="w"> </span><span class="kn">import</span> <span class="n">apriori</span>
+
+<span class="n">te</span> <span class="o">=</span> <span class="n">TransactionEncoder</span><span class="p">()</span>
+<span class="n">te_ary</span> <span class="o">=</span> <span class="n">te</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">languageorder</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">languageorder</span><span class="p">)</span>
+
+<span class="c1"># preparation of data frame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">te_ary</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">te</span><span class="o">.</span><span class="n">columns_</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># use of apriori algorithm</span>
+<span class="n">frequent_itemsets</span> <span class="o">=</span> <span class="n">apriori</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">min_support</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">use_colnames</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">frequent_itemsets</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The program uses a minimum support of 0.75. We see that English labels
+are present for all the properties, whereas French labels are only
+available for 93% of the properties. On considering pairs of languages,
+we see that English and Arabic are present in 93% of the translations.
+As we go further below, we see combinations of 3, 4, 5 languages etc.</p>
+<p>Please change this value between 0 and 1 and see the output.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+      <span class="n">S</span><span class="o">.</span><span class="n">No</span><span class="o">.</span>              <span class="n">support</span>                <span class="n">itemsets</span>
+      <span class="o">-------</span> <span class="o">----------</span> <span class="o">----------------------</span> <span class="o">----------</span>
+      <span class="mi">0</span>       <span class="mf">0.998424</span>   <span class="p">(</span><span class="n">ar</span><span class="p">)</span>                   
+      <span class="mi">1</span>       <span class="mf">0.759414</span>   <span class="p">(</span><span class="n">ca</span><span class="p">)</span>                   
+      <span class="mi">2</span>       <span class="mf">1.000000</span>   <span class="p">(</span><span class="n">en</span><span class="p">)</span>                   
+      <span class="mi">3</span>       <span class="mf">0.932409</span>   <span class="p">(</span><span class="n">fr</span><span class="p">)</span>                   
+      <span class="mi">4</span>       <span class="mf">0.993540</span>   <span class="p">(</span><span class="n">nl</span><span class="p">)</span>                   
+      <span class="mi">5</span>       <span class="mf">0.985978</span>   <span class="p">(</span><span class="n">uk</span><span class="p">)</span>                   
+      <span class="mi">6</span>       <span class="mf">0.758626</span>   <span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="n">ca</span><span class="p">)</span>               
+      <span class="mi">7</span>       <span class="mf">0.998424</span>   <span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">ar</span><span class="p">)</span>               
+      <span class="mi">8</span>       <span class="mf">0.931621</span>   <span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="n">fr</span><span class="p">)</span>               
+      <span class="mi">9</span>       <span class="mf">0.992752</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">ar</span><span class="p">)</span>               
+      <span class="mi">10</span>      <span class="mf">0.985663</span>   <span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="n">uk</span><span class="p">)</span>               
+      <span class="mi">11</span>      <span class="mf">0.759414</span>   <span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">ca</span><span class="p">)</span>               
+      <span class="mi">12</span>      <span class="mf">0.759256</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">ca</span><span class="p">)</span>               
+      <span class="mi">13</span>      <span class="mf">0.754215</span>   <span class="p">(</span><span class="n">uk</span><span class="p">,</span> <span class="n">ca</span><span class="p">)</span>               
+      <span class="mi">14</span>      <span class="mf">0.932409</span>   <span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">fr</span><span class="p">)</span>               
+      <span class="mi">15</span>      <span class="mf">0.993540</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">en</span><span class="p">)</span>               
+      <span class="mi">16</span>      <span class="mf">0.985978</span>   <span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">uk</span><span class="p">)</span>               
+      <span class="mi">17</span>      <span class="mf">0.931779</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">fr</span><span class="p">)</span>               
+      <span class="mi">18</span>      <span class="mf">0.928155</span>   <span class="p">(</span><span class="n">uk</span><span class="p">,</span> <span class="n">fr</span><span class="p">)</span>               
+      <span class="mi">19</span>      <span class="mf">0.985663</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">uk</span><span class="p">)</span>               
+      <span class="mi">20</span>      <span class="mf">0.758626</span>   <span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">ar</span><span class="p">,</span> <span class="n">ca</span><span class="p">)</span>           
+      <span class="mi">21</span>      <span class="mf">0.758469</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">ar</span><span class="p">,</span> <span class="n">ca</span><span class="p">)</span>           
+      <span class="mi">22</span>      <span class="mf">0.753899</span>   <span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="n">uk</span><span class="p">,</span> <span class="n">ca</span><span class="p">)</span>           
+      <span class="mi">23</span>      <span class="mf">0.931621</span>   <span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">ar</span><span class="p">,</span> <span class="n">fr</span><span class="p">)</span>           
+      <span class="mi">24</span>      <span class="mf">0.992752</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="n">ar</span><span class="p">)</span>           
+      <span class="mi">25</span>      <span class="mf">0.985663</span>   <span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">ar</span><span class="p">,</span> <span class="n">uk</span><span class="p">)</span>           
+      <span class="mi">26</span>      <span class="mf">0.931149</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">ar</span><span class="p">,</span> <span class="n">fr</span><span class="p">)</span>           
+      <span class="mi">27</span>      <span class="mf">0.927997</span>   <span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="n">uk</span><span class="p">,</span> <span class="n">fr</span><span class="p">)</span>           
+      <span class="mi">28</span>      <span class="mf">0.985347</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">ar</span><span class="p">,</span> <span class="n">uk</span><span class="p">)</span>           
+      <span class="mi">29</span>      <span class="mf">0.759256</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="n">ca</span><span class="p">)</span>           
+      <span class="mi">30</span>      <span class="mf">0.754215</span>   <span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">uk</span><span class="p">,</span> <span class="n">ca</span><span class="p">)</span>           
+      <span class="mi">31</span>      <span class="mf">0.754057</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">uk</span><span class="p">,</span> <span class="n">ca</span><span class="p">)</span>           
+      <span class="mi">32</span>      <span class="mf">0.931779</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="n">fr</span><span class="p">)</span>           
+      <span class="mi">33</span>      <span class="mf">0.928155</span>   <span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">uk</span><span class="p">,</span> <span class="n">fr</span><span class="p">)</span>           
+      <span class="mi">34</span>      <span class="mf">0.985663</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="n">uk</span><span class="p">)</span>           
+      <span class="mi">35</span>      <span class="mf">0.927840</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">uk</span><span class="p">,</span> <span class="n">fr</span><span class="p">)</span>           
+      <span class="mi">36</span>      <span class="mf">0.758469</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="n">ar</span><span class="p">,</span> <span class="n">ca</span><span class="p">)</span>       
+      <span class="mi">37</span>      <span class="mf">0.753899</span>   <span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">ar</span><span class="p">,</span> <span class="n">uk</span><span class="p">,</span> <span class="n">ca</span><span class="p">)</span>       
+      <span class="mi">38</span>      <span class="mf">0.753742</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">ar</span><span class="p">,</span> <span class="n">uk</span><span class="p">,</span> <span class="n">ca</span><span class="p">)</span>       
+      <span class="mi">39</span>      <span class="mf">0.931149</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="n">ar</span><span class="p">,</span> <span class="n">fr</span><span class="p">)</span>       
+      <span class="mi">40</span>      <span class="mf">0.927997</span>   <span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">ar</span><span class="p">,</span> <span class="n">uk</span><span class="p">,</span> <span class="n">fr</span><span class="p">)</span>       
+      <span class="mi">41</span>      <span class="mf">0.985347</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="n">ar</span><span class="p">,</span> <span class="n">uk</span><span class="p">)</span>       
+      <span class="mi">42</span>      <span class="mf">0.927682</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">ar</span><span class="p">,</span> <span class="n">uk</span><span class="p">,</span> <span class="n">fr</span><span class="p">)</span>       
+      <span class="mi">43</span>      <span class="mf">0.754057</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="n">uk</span><span class="p">,</span> <span class="n">ca</span><span class="p">)</span>       
+      <span class="mi">44</span>      <span class="mf">0.927840</span>   <span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="n">uk</span><span class="p">,</span> <span class="n">fr</span><span class="p">)</span>       
+      <span class="mi">45</span>      <span class="mf">0.753742</span>   <span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="n">ca</span><span class="p">,</span> <span class="n">nl</span><span class="p">,</span> <span class="n">uk</span><span class="p">)</span>   
+      <span class="mi">46</span>      <span class="mf">0.927682</span>   <span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="n">fr</span><span class="p">,</span> <span class="n">nl</span><span class="p">,</span> <span class="n">uk</span><span class="p">)</span>   
+
+</pre></div>
+</div>
+<p>Repeat the above experiment for descriptions and aliases. What are your
+observations. Please note them in the notebook as comments.</p>
+</section>
+<section id="exercise-7-3">
+<h2>Exercise 7.3<a class="headerlink" href="#exercise-7-3" title="Link to this heading">#</a></h2>
+<p>Our next goal is to generate the association rules, i.e, rules of the
+form. <em>A -&gt; C</em>, where A is the antecedent and C is the consequent.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mlxtend.frequent_patterns</span><span class="w"> </span><span class="kn">import</span> <span class="n">association_rules</span>
+
+<span class="n">association_rules</span><span class="p">(</span><span class="n">frequent_itemsets</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;confidence&quot;</span><span class="p">,</span> <span class="n">min_threshold</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It will give us the following output.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>      <span class="n">S</span><span class="o">.</span><span class="n">No</span><span class="o">.</span>   <span class="n">antecedents</span>   <span class="n">consequents</span>   <span class="n">antecedent</span> <span class="n">support</span>   <span class="n">consequent</span> <span class="n">support</span>   <span class="n">support</span>    <span class="n">confidence</span>   <span class="n">lift</span>       <span class="n">leverage</span>   <span class="n">conviction</span>
+      <span class="o">-------</span> <span class="o">-------------</span> <span class="o">-------------</span> <span class="o">--------------------</span> <span class="o">--------------------</span> <span class="o">----------</span> <span class="o">------------</span> <span class="o">----------</span> <span class="o">----------</span> <span class="o">------------</span>
+      <span class="mi">0</span>       <span class="p">(</span><span class="n">de</span><span class="p">)</span>          <span class="p">(</span><span class="n">en</span><span class="p">)</span>          <span class="mf">0.479193</span>             <span class="mf">0.988966</span>             <span class="mf">0.477932</span>   <span class="mf">0.997368</span>     <span class="mf">1.008496</span>   <span class="mf">0.004026</span>   <span class="mf">4.192938</span>
+      <span class="mi">1</span>       <span class="p">(</span><span class="n">de</span><span class="p">)</span>          <span class="p">(</span><span class="n">uk</span><span class="p">)</span>          <span class="mf">0.479193</span>             <span class="mf">0.960277</span>             <span class="mf">0.468789</span>   <span class="mf">0.978289</span>     <span class="mf">1.018757</span>   <span class="mf">0.008631</span>   <span class="mf">1.829646</span>
+      <span class="mi">2</span>       <span class="p">(</span><span class="n">es</span><span class="p">)</span>          <span class="p">(</span><span class="n">en</span><span class="p">)</span>          <span class="mf">0.389975</span>             <span class="mf">0.988966</span>             <span class="mf">0.388556</span>   <span class="mf">0.996362</span>     <span class="mf">1.007479</span>   <span class="mf">0.002884</span>   <span class="mf">3.033137</span>
+      <span class="mi">3</span>       <span class="p">(</span><span class="n">fr</span><span class="p">)</span>          <span class="p">(</span><span class="n">en</span><span class="p">)</span>          <span class="mf">0.713272</span>             <span class="mf">0.988966</span>             <span class="mf">0.708859</span>   <span class="mf">0.993812</span>     <span class="mf">1.004900</span>   <span class="mf">0.003457</span>   <span class="mf">1.783181</span>
+      <span class="mi">4</span>       <span class="p">(</span><span class="n">it</span><span class="p">)</span>          <span class="p">(</span><span class="n">en</span><span class="p">)</span>          <span class="mf">0.413934</span>             <span class="mf">0.988966</span>             <span class="mf">0.413146</span>   <span class="mf">0.998096</span>     <span class="mf">1.009232</span>   <span class="mf">0.003779</span>   <span class="mf">5.795082</span>
+      <span class="mi">5</span>       <span class="p">(</span><span class="n">ru</span><span class="p">)</span>          <span class="p">(</span><span class="n">en</span><span class="p">)</span>          <span class="mf">0.301387</span>             <span class="mf">0.988966</span>             <span class="mf">0.300441</span>   <span class="mf">0.996862</span>     <span class="mf">1.007984</span>   <span class="mf">0.002380</span>   <span class="mf">3.516183</span>
+      <span class="mi">6</span>       <span class="p">(</span><span class="n">en</span><span class="p">)</span>          <span class="p">(</span><span class="n">uk</span><span class="p">)</span>          <span class="mf">0.988966</span>             <span class="mf">0.960277</span>             <span class="mf">0.950189</span>   <span class="mf">0.960791</span>     <span class="mf">1.000534</span>   <span class="mf">0.000507</span>   <span class="mf">1.013087</span>
+      <span class="mi">7</span>       <span class="p">(</span><span class="n">uk</span><span class="p">)</span>          <span class="p">(</span><span class="n">en</span><span class="p">)</span>          <span class="mf">0.960277</span>             <span class="mf">0.988966</span>             <span class="mf">0.950189</span>   <span class="mf">0.989494</span>     <span class="mf">1.000534</span>   <span class="mf">0.000507</span>   <span class="mf">1.050303</span>
+      <span class="mi">8</span>       <span class="p">(</span><span class="n">es</span><span class="p">)</span>          <span class="p">(</span><span class="n">uk</span><span class="p">)</span>          <span class="mf">0.389975</span>             <span class="mf">0.960277</span>             <span class="mf">0.383039</span>   <span class="mf">0.982215</span>     <span class="mf">1.022845</span>   <span class="mf">0.008555</span>   <span class="mf">2.233492</span>
+      <span class="mi">9</span>       <span class="p">(</span><span class="n">fr</span><span class="p">)</span>          <span class="p">(</span><span class="n">uk</span><span class="p">)</span>          <span class="mf">0.713272</span>             <span class="mf">0.960277</span>             <span class="mf">0.689470</span>   <span class="mf">0.966630</span>     <span class="mf">1.006615</span>   <span class="mf">0.004531</span>   <span class="mf">1.190362</span>
+      <span class="mi">10</span>      <span class="p">(</span><span class="n">it</span><span class="p">)</span>          <span class="p">(</span><span class="n">uk</span><span class="p">)</span>          <span class="mf">0.413934</span>             <span class="mf">0.960277</span>             <span class="mf">0.405738</span>   <span class="mf">0.980198</span>     <span class="mf">1.020745</span>   <span class="mf">0.008246</span>   <span class="mf">2.005990</span>
+      <span class="mi">11</span>      <span class="p">(</span><span class="n">ru</span><span class="p">)</span>          <span class="p">(</span><span class="n">uk</span><span class="p">)</span>          <span class="mf">0.301387</span>             <span class="mf">0.960277</span>             <span class="mf">0.300126</span>   <span class="mf">0.995816</span>     <span class="mf">1.037009</span>   <span class="mf">0.010711</span>   <span class="mf">9.493695</span>
+      <span class="mi">12</span>      <span class="p">(</span><span class="n">de</span><span class="p">,</span> <span class="n">fr</span><span class="p">)</span>      <span class="p">(</span><span class="n">en</span><span class="p">)</span>          <span class="mf">0.391393</span>             <span class="mf">0.988966</span>             <span class="mf">0.391078</span>   <span class="mf">0.999195</span>     <span class="mf">1.010343</span>   <span class="mf">0.004003</span>   <span class="mf">13.698770</span>
+      <span class="mi">13</span>      <span class="p">(</span><span class="n">de</span><span class="p">,</span> <span class="n">uk</span><span class="p">)</span>      <span class="p">(</span><span class="n">en</span><span class="p">)</span>          <span class="mf">0.468789</span>             <span class="mf">0.988966</span>             <span class="mf">0.467686</span>   <span class="mf">0.997646</span>     <span class="mf">1.008777</span>   <span class="mf">0.004069</span>   <span class="mf">4.687894</span>
+</pre></div>
+</div>
+<p>Let’s take a look at one of the association rule <em>(de, fr)-&gt;(en)</em>. The
+confidence score is 0.999195. But this rule states that when we have
+French and German translations available, we will also have the English
+translation.</p>
+<p>You can change the metric to ‘lift’ and test.</p>
+<p>We will now add two columns that will contain the length of antecedents
+and consequents. As you may have noticed, association rules are
+dataframes. So we can easily write filter conditions to get antecedents
+and consequents of length more than 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mlxtend.frequent_patterns</span><span class="w"> </span><span class="kn">import</span> <span class="n">association_rules</span>
+
+<span class="n">arules</span> <span class="o">=</span> <span class="n">association_rules</span><span class="p">(</span><span class="n">frequent_itemsets</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;confidence&quot;</span><span class="p">,</span> <span class="n">min_threshold</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
+
+<span class="n">arules</span><span class="p">[</span><span class="s2">&quot;antecedent_len&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arules</span><span class="p">[</span><span class="s2">&quot;antecedents&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">arules</span><span class="p">[</span><span class="s2">&quot;consequent_len&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arules</span><span class="p">[</span><span class="s2">&quot;consequents&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">arules</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">arules</span><span class="p">[</span><span class="s2">&quot;antecedent_len&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">arules</span><span class="p">[</span><span class="s2">&quot;consequent_len&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>      <span class="n">S</span><span class="o">.</span><span class="n">No</span><span class="o">.</span>   <span class="n">antecedents</span>   <span class="n">consequents</span>   <span class="n">antecedent</span> <span class="n">support</span>   <span class="n">consequent</span> <span class="n">support</span>   <span class="n">support</span>    <span class="n">confidence</span>   <span class="n">lift</span>       <span class="n">leverage</span>   <span class="n">conviction</span>   <span class="n">antecedent</span>\<span class="n">_len</span>   <span class="n">consequent</span>\<span class="n">_len</span>
+      <span class="o">-------</span> <span class="o">-------------</span> <span class="o">-------------</span> <span class="o">--------------------</span> <span class="o">--------------------</span> <span class="o">----------</span> <span class="o">------------</span> <span class="o">----------</span> <span class="o">----------</span> <span class="o">------------</span> <span class="o">-----------------</span> <span class="o">-----------------</span>
+      <span class="mi">32</span>      <span class="p">(</span><span class="n">de</span><span class="p">,</span> <span class="n">fr</span><span class="p">)</span>      <span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">uk</span><span class="p">)</span>      <span class="mf">0.391393</span>             <span class="mf">0.950189</span>             <span class="mf">0.383670</span>   <span class="mf">0.980266</span>     <span class="mf">1.031653</span>   <span class="mf">0.011772</span>   <span class="mf">2.524088</span>     <span class="mi">2</span>                 <span class="mi">2</span>
+      <span class="mi">35</span>      <span class="p">(</span><span class="n">fr</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>      <span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">uk</span><span class="p">)</span>      <span class="mf">0.332755</span>             <span class="mf">0.950189</span>             <span class="mf">0.326765</span>   <span class="mf">0.981999</span>     <span class="mf">1.033477</span>   <span class="mf">0.010585</span>   <span class="mf">2.767124</span>     <span class="mi">2</span>                 <span class="mi">2</span>
+      <span class="mi">38</span>      <span class="p">(</span><span class="n">fr</span><span class="p">,</span> <span class="n">it</span><span class="p">)</span>      <span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">uk</span><span class="p">)</span>      <span class="mf">0.345523</span>             <span class="mf">0.950189</span>             <span class="mf">0.338430</span>   <span class="mf">0.979471</span>     <span class="mf">1.030817</span>   <span class="mf">0.010117</span>   <span class="mf">2.426342</span>     <span class="mi">2</span>                 <span class="mi">2</span>
+</pre></div>
+</div>
+<p>Repeat the above experiment for translation of descriptions and aliases.
+Please note down your observations as comments in your notebook.</p>
+</section>
+<section id="exercise-7-4">
+<h2>Exercise 7.4<a class="headerlink" href="#exercise-7-4" title="Link to this heading">#</a></h2>
+<p>Our next goal is to visualize the flow of translation. For this purpose,
+we install networkx.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>networkx<span class="w">      </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, we create groups for different translations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">languageorder</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">labeldataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;label&quot;</span><span class="p">)]</span>
+
+<span class="n">groups</span> <span class="o">=</span> <span class="n">labeldataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;property&quot;</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+    <span class="n">languageorder</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">groups</span><span class="o">.</span><span class="n">get_group</span><span class="p">((</span><span class="n">k</span><span class="p">))[</span><span class="s2">&quot;language&quot;</span><span class="p">]))</span>
+
+<span class="n">languagepairs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">lo</span> <span class="ow">in</span> <span class="n">languageorder</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lo</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">languagepairs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">lo</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">lo</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="n">lpdataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">languagepairs</span><span class="p">)</span>
+<span class="n">lpdataframe</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;target&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">]</span>
+
+<span class="n">groups</span> <span class="o">=</span> <span class="n">lpdataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;target&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we visualize them using circular layout. Note the code below, we
+have only taken 500 combinations of language pairs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plot</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">from_pandas_edgelist</span><span class="p">(</span><span class="n">groups</span><span class="p">[:</span><span class="mi">500</span><span class="p">],</span> <span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;target&quot;</span><span class="p">)</span>
+
+<span class="n">plot</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+
+<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">circular_layout</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Copy the above code and check the flow of translations for any languages
+of your choice (number of languages &gt; 20).</p>
+<p>Use Bokeh/Holoviews chord layout for visualizing the weights as well.</p>
 </section>
 </section>
 
@@ -473,6 +961,15 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goals">Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-1">Exercise 7.1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download">Download</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-of-dataframe">Creation of dataframe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-translation">Visualization of translation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-2">Exercise 7.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-3">Exercise 7.3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-4">Exercise 7.4</a></li>
 </ul>
   </nav></div>
 
