@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -69,7 +66,6 @@
     <link rel="prev" title="Practical 3" href="../practical3/practical3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +81,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -94,6 +101,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -101,8 +109,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +126,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -149,17 +156,21 @@
     
     
     <img src="../../_static/massivedataprocessing.svg" class="logo__image only-light" alt="Traitement de données massives - Home"/>
-    <img src="../../_static/massivedataprocessing.svg" class="logo__image only-dark pst-js-only" alt="Traitement de données massives - Home"/>
+    <script>document.write(`<img src="../../_static/massivedataprocessing.svg" class="logo__image only-dark" alt="Traitement de données massives - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -209,14 +220,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -362,16 +368,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -400,10 +414,26 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiprocessing">Multiprocessing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1 [★]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2 [★]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3 [★★]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4 [★★]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1 [★]</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-with-nested-structures">Filtering with Nested Structures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-string-filtering">Advanced String Filtering</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2 [★]</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-operations-with-map-and-reduce">Matrix Operations with <code class="docutils literal notranslate"><span class="pre">map()</span></code> and <code class="docutils literal notranslate"><span class="pre">reduce()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-transformation-and-aggregation">Data Transformation and Aggregation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3 [★★]</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-analysis-with-lambda-expressions"><strong>Text Analysis with Lambda Expressions</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#financial-data-processing-with-lambda-expressions">Financial Data Processing with Lambda Expressions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4 [★★★]</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-data-processing-with-multiprocessing">Parallel Data Processing with Multiprocessing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-analysis-with-multiprocessing">Image Analysis with Multiprocessing</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -507,6 +537,54 @@ else False.</p>
 </div>
 </div>
 <p><strong>Question</strong> Write a program using filter() that takes a list of strings and filters out the palindromes.</p>
+<section id="filtering-with-nested-structures">
+<h3>Filtering with Nested Structures<a class="headerlink" href="#filtering-with-nested-structures" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">filter()</span></code> function can also be applied to complex data structures like lists of dictionaries or tuples.</p>
+<p>You are given a list of dictionaries representing employees, each with <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">age</span></code>, and <code class="docutils literal notranslate"><span class="pre">department</span></code> keys:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employees</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;HR&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;Engineering&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;Marketing&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;Engineering&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Pierre&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">29</span><span class="p">,</span> <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;HR&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Questions</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Filter by Department:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">filter()</span></code> to create a list of employees who work in the “Engineering” department.</p></li>
+<li><p><strong>Filter by Age Range:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">filter()</span></code> to find employees whose age is between 25 and 40 (inclusive).</p></li>
+<li><p><strong>Filter by Name Length:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">filter()</span></code> to find employees whose name has more than 3 characters.</p></li>
+</ol>
+</section>
+<section id="advanced-string-filtering">
+<h3>Advanced String Filtering<a class="headerlink" href="#advanced-string-filtering" title="Link to this heading">#</a></h3>
+<p>You are given a list of sentences. Your task is to filter sentences based on various conditions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Bienvenue dans le monde de la programmation!&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Le débogage fait partie du jeu.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;La pratique rend parfait, alors continue à coder.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Les algorithmes d&#39;apprentissage automatique sont de plus en plus puissants.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;La visualisation de données est un moyen de communiquer des informations complexes.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Les données non structurées sont un défi pour les Data Scientists.&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Questions</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Filter by Length:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">filter()</span></code> to select sentences that have fewer than 5 words.</p></li>
+<li><p><strong>Filter by Keywords:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">filter()</span></code> to select sentences that contain the word “coder”.</p></li>
+<li><p><strong>Filter by Palindromic Words:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">filter()</span></code> to select sentences that contain at least one palindrome.</p></li>
+</ol>
+</section>
 </section>
 <section id="exercice-2">
 <h2>Exercice 2 [★]<a class="headerlink" href="#exercice-2" title="Link to this heading">#</a></h2>
@@ -619,6 +697,54 @@ else False.</p>
 </div>
 </div>
 <p><strong>Question</strong>: Write a program that takes a list of matrices of size 2x2 and computes the sum of all matrices.</p>
+<section id="matrix-operations-with-map-and-reduce">
+<h3>Matrix Operations with <code class="docutils literal notranslate"><span class="pre">map()</span></code> and <code class="docutils literal notranslate"><span class="pre">reduce()</span></code><a class="headerlink" href="#matrix-operations-with-map-and-reduce" title="Link to this heading">#</a></h3>
+<p>You are given a list of 2x2 matrices (lists of lists). You need to <strong>apply various operations using <code class="docutils literal notranslate"><span class="pre">map()</span></code> and <code class="docutils literal notranslate"><span class="pre">reduce()</span></code></strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">reduce</span>
+
+<span class="n">matrices</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span>
+    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span>
+    <span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]],</span>
+    <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Questions</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Sum of All Matrices:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> to compute the sum of all matrices.</p></li>
+<li><p><strong>Element-wise Multiplication:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">map()</span></code> to compute the element-wise multiplication of two matrices.</p></li>
+<li><p><strong>Matrix Filtering:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">filter()</span></code> to select only matrices where all elements are positive.</p></li>
+</ol>
+</section>
+<section id="data-transformation-and-aggregation">
+<h3>Data Transformation and Aggregation<a class="headerlink" href="#data-transformation-and-aggregation" title="Link to this heading">#</a></h3>
+<p>You have a list of dictionaries representing products, with keys <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">price</span></code>, and <code class="docutils literal notranslate"><span class="pre">quantity</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">reduce</span>
+
+<span class="n">products</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Laptop&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">1200</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Smartphone&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Tablet&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Smartwatch&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Questions</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Total Inventory Value:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">map()</span></code> and <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> to calculate the total value of all products in stock.</p></li>
+<li><p><strong>Price Filtering:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">filter()</span></code> to find products priced above a certain threshold (e.g., 500).</p></li>
+<li><p><strong>Discount Application:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">map()</span></code> to apply a 10% discount to all products and returns the updated list.</p></li>
+</ol>
+</section>
 </section>
 <section id="exercice-3">
 <h2>Exercice 3 [★★]<a class="headerlink" href="#exercice-3" title="Link to this heading">#</a></h2>
@@ -712,9 +838,62 @@ else False.</p>
 </div>
 </div>
 <p><strong>Question</strong> Write a program using map(), reduce() and lambda expressions to count the total length of all strings in a list.</p>
+<section id="text-analysis-with-lambda-expressions">
+<h3><strong>Text Analysis with Lambda Expressions</strong><a class="headerlink" href="#text-analysis-with-lambda-expressions" title="Link to this heading">#</a></h3>
+<p>You are given a list of sentences. Each sentence is a string containing multiple words.<br />
+Use <code class="docutils literal notranslate"><span class="pre">map()</span></code>, <code class="docutils literal notranslate"><span class="pre">filter()</span></code>, and <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> with <strong>lambda expressions</strong> to analyze the text.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Bienvenue dans le monde de la programmation!&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Le débogage fait partie du jeu.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;La pratique rend parfait, alors continue à coder.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Les algorithmes d&#39;apprentissage automatique sont de plus en plus puissants.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;La visualisation de données est un moyen de communiquer des informations complexes.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Les données non structurées sont un défi pour les Data Scientists.&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Questions</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Word Count:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">map()</span></code> and <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> to count the total number of words in all sentences.</p></li>
+<li><p><strong>Longest Sentence:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> to find the longest sentence by word count.</p></li>
+<li><p><strong>Filtering Short Sentences:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">filter()</span></code> to keep only sentences with more than 6 words.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">reduce</span>
+
+<span class="n">transactions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-10&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;income&quot;</span><span class="p">,</span> <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">1200</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-11&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;expense&quot;</span><span class="p">,</span> <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-12&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;income&quot;</span><span class="p">,</span> <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">1500</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-13&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;expense&quot;</span><span class="p">,</span> <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">800</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-14&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;income&quot;</span><span class="p">,</span> <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-15&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;expense&quot;</span><span class="p">,</span> <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">500</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-16&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;income&quot;</span><span class="p">,</span> <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">1800</span><span class="p">},</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="financial-data-processing-with-lambda-expressions">
+<h3>Financial Data Processing with Lambda Expressions<a class="headerlink" href="#financial-data-processing-with-lambda-expressions" title="Link to this heading">#</a></h3>
+<p>You have a list of transactions represented as dictionaries.<br />
+Use <code class="docutils literal notranslate"><span class="pre">map()</span></code>, <code class="docutils literal notranslate"><span class="pre">filter()</span></code>, and <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> with <strong>lambda expressions</strong> to process the data.</p>
+<p><strong>Questions</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Net Balance Calculation:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> to calculate the net balance (sum of all income minus sum of all expenses).</p></li>
+<li><p><strong>Filter Transactions:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">filter()</span></code> to retrieve only income transactions above a threshold (e.g., 1500).</p></li>
+<li><p><strong>Transaction Amounts:</strong> Write a program that uses <code class="docutils literal notranslate"><span class="pre">map()</span></code> to extract only the amounts from the transactions and returns them as a list.</p></li>
+</ol>
+</section>
 </section>
 <section id="exercice-4">
-<h2>Exercice 4 [★★]<a class="headerlink" href="#exercice-4" title="Link to this heading">#</a></h2>
+<h2>Exercice 4 [★★★]<a class="headerlink" href="#exercice-4" title="Link to this heading">#</a></h2>
 <p>Next, we want to use multiprocessing to compute the values in parallel.
 For this purpose we will use multiprocessing package.</p>
 <p>First we find the number of processors in our machine.</p>
@@ -834,6 +1013,39 @@ we count the number of URLs containing “<a class="reference external" href="ht
 downloads the images to your machine using multiprocessing and map().
 The program must then analyse every downloaded image and find two predominant colours of
 each image, again using multiprocessing and map().</p>
+<section id="parallel-data-processing-with-multiprocessing">
+<h3>Parallel Data Processing with Multiprocessing<a class="headerlink" href="#parallel-data-processing-with-multiprocessing" title="Link to this heading">#</a></h3>
+<p><strong>Question</strong></p>
+<p>Write a program that takes a list of URLs pointing to text files hosted online.</p>
+<ol class="arabic simple">
+<li><p>Download all the text files concurrently using <code class="docutils literal notranslate"><span class="pre">multiprocessing.Pool()</span></code> and <code class="docutils literal notranslate"><span class="pre">map()</span></code>.</p></li>
+<li><p>Once downloaded, perform the following tasks in parallel:</p>
+<ul class="simple">
+<li><p>Count the total number of words in each file.</p></li>
+<li><p>Count the frequency of each word across all files (case-insensitive).</p></li>
+</ul>
+</li>
+<li><p>Aggregate the results and display the 10 most common words and their frequencies.</p></li>
+</ol>
+<p><strong>Note:</strong>  : Use <code class="docutils literal notranslate"><span class="pre">multiprocessing.Pool()</span></code> and <code class="docutils literal notranslate"><span class="pre">map()</span></code> for processing.</p>
+</section>
+<section id="image-analysis-with-multiprocessing">
+<h3>Image Analysis with Multiprocessing<a class="headerlink" href="#image-analysis-with-multiprocessing" title="Link to this heading">#</a></h3>
+<p><strong>Question</strong></p>
+<p>Write a program that takes a list of image file paths and processes them concurrently to perform the following tasks:</p>
+<ol class="arabic simple">
+<li><p><strong>Resize all images</strong> to a fixed resolution (e.g., 128x128).</p></li>
+<li><p><strong>Convert the images to grayscale</strong> and compute their average intensity.</p></li>
+<li><p><strong>Generate thumbnails</strong> for all images and save them in a specified directory.</p></li>
+<li><p>Aggregate the results and display:</p>
+<ul class="simple">
+<li><p>The image with the highest average intensity.</p></li>
+<li><p>The image with the lowest average intensity.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Note:</strong>  : Use <code class="docutils literal notranslate"><span class="pre">multiprocessing.Pool()</span></code> and <code class="docutils literal notranslate"><span class="pre">map()</span></code> for processing.</p>
+</section>
 </section>
 </section>
 
@@ -892,8 +1104,7 @@ each image, again using multiprocessing and map().</p>
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -907,10 +1118,26 @@ each image, again using multiprocessing and map().</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiprocessing">Multiprocessing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1 [★]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2 [★]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3 [★★]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4 [★★]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1 [★]</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-with-nested-structures">Filtering with Nested Structures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-string-filtering">Advanced String Filtering</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2 [★]</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-operations-with-map-and-reduce">Matrix Operations with <code class="docutils literal notranslate"><span class="pre">map()</span></code> and <code class="docutils literal notranslate"><span class="pre">reduce()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-transformation-and-aggregation">Data Transformation and Aggregation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3 [★★]</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-analysis-with-lambda-expressions"><strong>Text Analysis with Lambda Expressions</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#financial-data-processing-with-lambda-expressions">Financial Data Processing with Lambda Expressions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4 [★★★]</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-data-processing-with-multiprocessing">Parallel Data Processing with Multiprocessing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-analysis-with-multiprocessing">Image Analysis with Multiprocessing</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -959,8 +1186,8 @@ By John Samuel
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

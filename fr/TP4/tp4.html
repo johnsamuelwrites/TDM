@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -69,7 +66,6 @@
     <link rel="prev" title="TP 3" href="../TP3/tp3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +81,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -94,6 +101,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -101,8 +109,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +126,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -149,17 +156,21 @@
     
     
     <img src="../../_static/massivedataprocessing.svg" class="logo__image only-light" alt="Traitement de données massives - Home"/>
-    <img src="../../_static/massivedataprocessing.svg" class="logo__image only-dark pst-js-only" alt="Traitement de données massives - Home"/>
+    <script>document.write(`<img src="../../_static/massivedataprocessing.svg" class="logo__image only-dark" alt="Traitement de données massives - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -209,14 +220,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -362,16 +368,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -400,10 +414,28 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiprocessus">Multiprocessus</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1 [★]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2 [★]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3 [★★]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4 [★★]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1 [★]</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtrage-avec-des-structures-imbriquees">Filtrage avec des structures imbriquées</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtrage-avance-de-chaines-de-caracteres">Filtrage avancé de chaînes de caractères</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2 [★]</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-sur-les-matrices-avec-map-et-reduce">Opérations sur les matrices avec <code class="docutils literal notranslate"><span class="pre">map()</span></code> et <code class="docutils literal notranslate"><span class="pre">reduce()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-et-agregation-de-donnees">Transformation et agrégation de données</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3 [★★]</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-de-texte-avec-des-expressions-lambda">Analyse de texte avec des expressions lambda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traitement-de-donnees-financieres-avec-des-expressions-lambda">Traitement de données financières avec des expressions lambda</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4 [★★★]</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traitement-de-donnees-en-parallele-avec-multiprocessing">Traitement de données en parallèle avec Multiprocessing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-dimages-avec-multiprocessing">Analyse d’images avec Multiprocessing</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -507,6 +539,54 @@ sinon <code class="docutils literal notranslate"><span class="pre">False</span><
 </div>
 </div>
 <p><strong>Question</strong>  Écrivez un programme utilisant filter() qui prend une liste de chaînes de caractères et filtre les palindromes.</p>
+<section id="filtrage-avec-des-structures-imbriquees">
+<h3>Filtrage avec des structures imbriquées<a class="headerlink" href="#filtrage-avec-des-structures-imbriquees" title="Link to this heading">#</a></h3>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">filter()</span></code> peut également être appliquée à des structures de données complexes comme des listes de dictionnaires ou de tuples.</p>
+<p>On vous donne une liste de dictionnaires représentant des employés, chacun ayant les clés <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">age</span></code> et <code class="docutils literal notranslate"><span class="pre">department</span></code> :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employees</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;HR&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;Engineering&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;Marketing&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;Engineering&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Pierre&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">29</span><span class="p">,</span> <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;HR&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Questions</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Filtrage par département :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">filter()</span></code> pour créer une liste d’employés qui travaillent dans le département “Engineering”.</p></li>
+<li><p><strong>Filtrage par tranche d’âge :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">filter()</span></code> pour trouver les employés dont l’âge est compris entre 25 et 40 ans (inclus).</p></li>
+<li><p><strong>Filtrage par longueur de nom :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">filter()</span></code> pour trouver les employés dont le nom contient plus de 3 caractères.</p></li>
+</ol>
+</section>
+<section id="filtrage-avance-de-chaines-de-caracteres">
+<h3>Filtrage avancé de chaînes de caractères<a class="headerlink" href="#filtrage-avance-de-chaines-de-caracteres" title="Link to this heading">#</a></h3>
+<p>On vous donne une liste de phrases. Votre tâche est de filtrer les phrases en fonction de diverses conditions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Bienvenue dans le monde de la programmation!&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Le débogage fait partie du jeu.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;La pratique rend parfait, alors continue à coder.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Les algorithmes d&#39;apprentissage automatique sont de plus en plus puissants.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;La visualisation de données est un moyen de communiquer des informations complexes.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Les données non structurées sont un défi pour les Data Scientists.&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Questions</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Filtrage par longueur :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">filter()</span></code> pour sélectionner les phrases comportant moins de 5 mots.</p></li>
+<li><p><strong>Filtrage par mots-clés :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">filter()</span></code> pour sélectionner les phrases contenant le mot “coder”.</p></li>
+<li><p><strong>Filtrage par mots palindromiques :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">filter()</span></code> pour sélectionner les phrases contenant au moins un palindrome.</p></li>
+</ol>
+</section>
 </section>
 <section id="exercice-2">
 <h2>Exercice 2 [★]<a class="headerlink" href="#exercice-2" title="Link to this heading">#</a></h2>
@@ -619,6 +699,54 @@ sinon <code class="docutils literal notranslate"><span class="pre">False</span><
 </div>
 </div>
 <p><strong>Question</strong>: Écrivez un programme qui prend une liste de matrices de taille 2x2 et calcule la somme de toutes les matrices.</p>
+<section id="operations-sur-les-matrices-avec-map-et-reduce">
+<h3>Opérations sur les matrices avec <code class="docutils literal notranslate"><span class="pre">map()</span></code> et <code class="docutils literal notranslate"><span class="pre">reduce()</span></code><a class="headerlink" href="#operations-sur-les-matrices-avec-map-et-reduce" title="Link to this heading">#</a></h3>
+<p>On vous donne une liste de matrices 2x2 (listes de listes). Vous devez <strong>appliquer diverses opérations en utilisant <code class="docutils literal notranslate"><span class="pre">map()</span></code> et <code class="docutils literal notranslate"><span class="pre">reduce()</span></code></strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">reduce</span>
+
+<span class="n">matrices</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span>
+    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span>
+    <span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]],</span>
+    <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Questions</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Somme de toutes les matrices :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> pour calculer la somme de toutes les matrices.</p></li>
+<li><p><strong>Multiplication élément par élément :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">map()</span></code> pour calculer la multiplication élément par élément de deux matrices.</p></li>
+<li><p><strong>Filtrage de matrices :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">filter()</span></code> pour sélectionner uniquement les matrices dont tous les éléments sont positifs.</p></li>
+</ol>
+<section id="transformation-et-agregation-de-donnees">
+<h4>Transformation et agrégation de données<a class="headerlink" href="#transformation-et-agregation-de-donnees" title="Link to this heading">#</a></h4>
+<p>Vous disposez d’une liste de dictionnaires représentant des produits, avec les clés <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">price</span></code> et <code class="docutils literal notranslate"><span class="pre">quantity</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">reduce</span>
+
+<span class="n">products</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Laptop&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">1200</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Smartphone&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Tablet&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Smartwatch&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Questions</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Valeur totale de l’inventaire :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">map()</span></code> et <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> pour calculer la valeur totale de tous les produits en stock.</p></li>
+<li><p><strong>Filtrage par prix :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">filter()</span></code> pour trouver les produits dont le prix est supérieur à un certain seuil (par exemple, 500).</p></li>
+<li><p><strong>Application d’une remise :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">map()</span></code> pour appliquer une remise de 10 % à tous les produits et renvoie la liste mise à jour.</p></li>
+</ol>
+</section>
+</section>
 </section>
 <section id="exercice-3">
 <h2>Exercice 3 [★★]<a class="headerlink" href="#exercice-3" title="Link to this heading">#</a></h2>
@@ -712,9 +840,62 @@ sinon <code class="docutils literal notranslate"><span class="pre">False</span><
 </div>
 </div>
 <p><strong>Question</strong> Écrivez un programme utilisant map(), reduce() et des expressions lambda pour compter la longueur totale de toutes les chaînes de caractères dans une liste.</p>
+<section id="analyse-de-texte-avec-des-expressions-lambda">
+<h3>Analyse de texte avec des expressions lambda<a class="headerlink" href="#analyse-de-texte-avec-des-expressions-lambda" title="Link to this heading">#</a></h3>
+<p>Vous disposez d’une liste de phrases. Chaque phrase est une chaîne de caractères contenant plusieurs mots.<br />
+Utilisez <code class="docutils literal notranslate"><span class="pre">map()</span></code>, <code class="docutils literal notranslate"><span class="pre">filter()</span></code> et <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> avec des <strong>expressions lambda</strong> pour analyser le texte.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Bienvenue dans le monde de la programmation!&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Le débogage fait partie du jeu.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;La pratique rend parfait, alors continue à coder.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Les algorithmes d&#39;apprentissage automatique sont de plus en plus puissants.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;La visualisation de données est un moyen de communiquer des informations complexes.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Les données non structurées sont un défi pour les Data Scientists.&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Questions</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Compte des mots :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">map()</span></code> et <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> pour compter le nombre total de mots dans toutes les phrases.</p></li>
+<li><p><strong>Phrase la plus longue :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> pour trouver la phrase la plus longue en nombre de mots.</p></li>
+<li><p><strong>Filtrage des phrases courtes :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">filter()</span></code> pour ne conserver que les phrases contenant plus de 6 mots.</p></li>
+</ol>
+</section>
+<section id="traitement-de-donnees-financieres-avec-des-expressions-lambda">
+<h3>Traitement de données financières avec des expressions lambda<a class="headerlink" href="#traitement-de-donnees-financieres-avec-des-expressions-lambda" title="Link to this heading">#</a></h3>
+<p>Vous disposez d’une liste de transactions représentées par des dictionnaires.<br />
+Utilisez <code class="docutils literal notranslate"><span class="pre">map()</span></code>, <code class="docutils literal notranslate"><span class="pre">filter()</span></code> et <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> avec des <strong>expressions lambda</strong> pour traiter les données.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">reduce</span>
+
+<span class="n">transactions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-10&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;income&quot;</span><span class="p">,</span> <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">1200</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-11&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;expense&quot;</span><span class="p">,</span> <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-12&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;income&quot;</span><span class="p">,</span> <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">1500</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-13&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;expense&quot;</span><span class="p">,</span> <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">800</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-14&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;income&quot;</span><span class="p">,</span> <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-15&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;expense&quot;</span><span class="p">,</span> <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">500</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-16&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;income&quot;</span><span class="p">,</span> <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">1800</span><span class="p">},</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Questions</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Calcul du solde net :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> pour calculer le solde net (somme de tous les revenus moins la somme de toutes les dépenses).</p></li>
+<li><p><strong>Filtrage des transactions :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">filter()</span></code> pour récupérer uniquement les transactions de type revenu supérieures à un certain seuil (par exemple, 1500).</p></li>
+<li><p><strong>Montants des transactions :</strong> Écrivez un programme qui utilise <code class="docutils literal notranslate"><span class="pre">map()</span></code> pour extraire uniquement les montants des transactions et les renvoyer sous forme de liste.</p></li>
+</ol>
+</section>
 </section>
 <section id="exercice-4">
-<h2>Exercice 4 [★★]<a class="headerlink" href="#exercice-4" title="Link to this heading">#</a></h2>
+<h2>Exercice 4 [★★★]<a class="headerlink" href="#exercice-4" title="Link to this heading">#</a></h2>
 <p>Nous voulons utiliser le multitraitement pour calculer les valeurs en parallèle.
 Pour ce faire, nous utiliserons le paquet multiprocessing.</p>
 <p>D’abord nous trouvons le nombre de processeurs dans notre machine..</p>
@@ -833,6 +1014,39 @@ nous comptons le nombre d’URLs contenant “<a class="reference external" href
 <p><strong>Question</strong>: Écrivez un programme qui interroge Wikidata pour obtenir 100 URL d’images de villes et qui
 télécharge les images sur votre machine en utilisant multiprocessing et map().
 Le programme doit ensuite analyser chaque image téléchargée et trouver les deux couleurs prédominantes de chaque image, toujours en utilisant multiprocessing et map().</p>
+<section id="traitement-de-donnees-en-parallele-avec-multiprocessing">
+<h3>Traitement de données en parallèle avec Multiprocessing<a class="headerlink" href="#traitement-de-donnees-en-parallele-avec-multiprocessing" title="Link to this heading">#</a></h3>
+<p><strong>Question</strong></p>
+<p>Écrivez un programme qui prend une liste d’URLs pointant vers des fichiers texte hébergés en ligne.</p>
+<ol class="arabic simple">
+<li><p>Téléchargez tous les fichiers texte de manière concurrente en utilisant <code class="docutils literal notranslate"><span class="pre">multiprocessing.Pool()</span></code> et <code class="docutils literal notranslate"><span class="pre">map()</span></code>.</p></li>
+<li><p>Une fois les fichiers téléchargés, effectuez les tâches suivantes en parallèle :</p>
+<ul class="simple">
+<li><p>Compter le nombre total de mots dans chaque fichier.</p></li>
+<li><p>Compter la fréquence de chaque mot dans l’ensemble des fichiers (sans distinction de casse).</p></li>
+</ul>
+</li>
+<li><p>Agrégez les résultats et affichez les 10 mots les plus courants ainsi que leurs fréquences.</p></li>
+</ol>
+<p><strong>Remarque :</strong> Utilisez <code class="docutils literal notranslate"><span class="pre">multiprocessing.Pool()</span></code> et <code class="docutils literal notranslate"><span class="pre">map()</span></code> pour le traitement.</p>
+</section>
+<section id="analyse-dimages-avec-multiprocessing">
+<h3>Analyse d’images avec Multiprocessing<a class="headerlink" href="#analyse-dimages-avec-multiprocessing" title="Link to this heading">#</a></h3>
+<p><strong>Question</strong></p>
+<p>Écrivez un programme qui prend une liste de chemins de fichiers d’images et les traite de manière concurrente pour effectuer les tâches suivantes :</p>
+<ol class="arabic simple">
+<li><p><strong>Redimensionner toutes les images</strong> à une résolution fixe (par exemple, 128x128).</p></li>
+<li><p><strong>Convertir les images en niveaux de gris</strong> et calculer leur intensité moyenne.</p></li>
+<li><p><strong>Générer des miniatures</strong> pour toutes les images et les enregistrer dans un répertoire spécifié.</p></li>
+<li><p>Agréger les résultats et afficher :</p>
+<ul class="simple">
+<li><p>L’image avec l’intensité moyenne la plus élevée.</p></li>
+<li><p>L’image avec l’intensité moyenne la plus faible.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Remarque :</strong> Utilisez <code class="docutils literal notranslate"><span class="pre">multiprocessing.Pool()</span></code> et <code class="docutils literal notranslate"><span class="pre">map()</span></code> pour le traitement.</p>
+</section>
 </section>
 </section>
 
@@ -891,8 +1105,7 @@ Le programme doit ensuite analyser chaque image téléchargée et trouver les de
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -906,10 +1119,28 @@ Le programme doit ensuite analyser chaque image téléchargée et trouver les de
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiprocessus">Multiprocessus</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1 [★]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2 [★]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3 [★★]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4 [★★]</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1 [★]</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtrage-avec-des-structures-imbriquees">Filtrage avec des structures imbriquées</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtrage-avance-de-chaines-de-caracteres">Filtrage avancé de chaînes de caractères</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2 [★]</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-sur-les-matrices-avec-map-et-reduce">Opérations sur les matrices avec <code class="docutils literal notranslate"><span class="pre">map()</span></code> et <code class="docutils literal notranslate"><span class="pre">reduce()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-et-agregation-de-donnees">Transformation et agrégation de données</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3 [★★]</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-de-texte-avec-des-expressions-lambda">Analyse de texte avec des expressions lambda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traitement-de-donnees-financieres-avec-des-expressions-lambda">Traitement de données financières avec des expressions lambda</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4 [★★★]</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traitement-de-donnees-en-parallele-avec-multiprocessing">Traitement de données en parallèle avec Multiprocessing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-dimages-avec-multiprocessing">Analyse d’images avec Multiprocessing</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -958,8 +1189,8 @@ By John Samuel
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
