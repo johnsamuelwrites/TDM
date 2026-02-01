@@ -137,3 +137,5 @@ modified_pl.json
 pl_missing.csv
 en/*/*.jpg
 fr/*/*.jpg
+large_test_file.txt
+sample_logs.txt
