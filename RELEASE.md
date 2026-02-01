@@ -1,3 +1,18 @@
+# v1.4
+===============================================================================
+- Add Producer-Consumer + RabbitMQ example
+- Add example with DB
+- Add example with shared volume
+- Add example on Flask + React application
+- Update practical 7
+- Add supplementary questions
+- Update exercises
+- Update exercises with questions
+- Update and precise questions
+- Fixes #3
+- Correct errors
+- Add placeholder practical sessions
+
 # v1.3
 ===============================================================================
 - Add installation page
